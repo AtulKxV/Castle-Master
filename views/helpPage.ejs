@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Cloud Castle</title>
+</head>
+<body onload="getCookie();">
+<div class="container-fuid m-0 p-0">
+	<div class="container-fuid m-0 sidenav bg-light p-3">
+		<div class="headerfont">
+			<a class="headerfont logo_link" href="/">
+				<img class="img-fluid logo m-1" src="/assets/icons8-castle-64.png">
+			</a>
+			<span class="m-0 p-0 align-bottom text-dark"><b>Cloud Castle</b></span>
+		</div>
+		<hr class="darkModeHRLogo">
+		<br>
+		<center>
+			<button id="modalActivate" type="button" class="btn align-text-top btn-primary w-75 headerfont" data-toggle="modal" data-target="#exampleModalPreview"><img class="align-middle mr-2" src="/assets/outline_cloud_upload_white_18dp.png">    Upload</button>
+		</center>
+
+		<div class="mt-4">
+			<ul class="list-group list-group-flush headerfont bg-light">
+				<a href="/uploadFile/dashboard" class="page-link p-0 m-0 border-0 text-dark sidebarListItem"><li class="list-group-item bg-light border-0 pb-0 pl-4"><i class="fa fa-home header_main pr-3 text-dark sidebarListItem" aria-hidden="true"></i>Home</li></a>					
+				<br>
+				<a href="/uploadFile/dashboard/recent" class="page-link p-0 m-0 border-0 text-dark sidebarListItem"><li class="list-group-item bg-light border-0 pb-0 pl-4"><i class="fa fa-clock-o fa-flip-horizontal header_main pl-3 text-dark sidebarListItem" aria-hidden="true"></i>Recent</li></a>
+				<a href="/uploadFile/dashboard/favourite" class="page-link p-0 m-0 border-0 text-dark sidebarListItem"><li class="list-group-item bg-light border-0 pb-0 pl-4"><i class="fa fa-star header_main pr-3 text-dark sidebarListItem"></i>Starred</li></a>	
+				<br>
+				<!-- <a href="/uploadFile/dashboard/projects" class="page-link p-0 m-0 border-0 text-dark"><li class="list-group-item bg-light border-0 pb-0 pl-4"><i class="fa fa-users header_main pr-3"></i>Teams</li></a> -->
+				<a href="/uploadFile/dashboard/archives" class="page-link p-0 m-0 border-0 text-dark sidebarListItem"><li class="list-group-item bg-light border-0 pb-0 pl-4"><i class="fas fa-archive header_main pr-3 text-dark sidebarListItem"></i>Archives</li></a>
+				<br>
+				<li class="list-group-item bg-light border-0 pb-0 pl-4"><i class="fa fa-tags header_main pr-3 text-dark"></i><span class="text-dark sidebarListItem">Tags</span>
+					<ul class="list-group parafont">
+						<a href="/uploadFile/dashboard/work" class="page-link p-0 border-0 text-dark"><li class="list-group-item bg-light header_main secondary-size border-0 pt-2 pb-0 m-0 sidebarListItemSecondary"><i class="fa fa-briefcase p-2 sidebarListItemSecondary"></i>Work</li></a>
+						<a href="/uploadFile/dashboard/personal" class="page-link p-0 m-0 border-0 text-dark"><li class="list-group-item bg-light header_main secondary-size border-0 py-0  sidebarListItemSecondary"><i class="fa fa-user p-2 sidebarListItemSecondary"></i>Personal</li></a>
+						<a href="/uploadFile/dashboard/other" class="page-link p-0 m-0 border-0 text-dark"><li class="list-group-item bg-light header_main secondary-size border-0 py-0 sidebarListItemSecondary"><i class="fa fa-folder p-2 sidebarListItemSecondary"></i>Other</li></a>
+					</ul>
+				</li>
+				<br>
+				<a href="/uploadFile/dashboard/trash" class="page-link p-0 m-0 border-0 text-dark"><li class="list-group-item bg-light border-0 pb-0 pl-4 sidebarListItem"><i class="fa fa-trash header_main pr-3 text-dark sidebarListItem"></i>Trash</li></a>
+			</ul>
+		</div>
+
+
+
+
+		<div class="logoutsection fixed-bottom align-text-top">
+		<hr class="my-0 darkModeHR">
+        	<a href="/users/logout" id="logoutBtn" class="btn btn-link w-100 h-100 p-3 headerfont header_main text-dark">Logout</a>
+		</div>
+	</div>
+
+
+
+	<!--Right Sidebar-->
+    <div class="container-fuid sidebar-right bg-light header_main right pr-3 pl-3 pt-3 pb-1 card border-0">
+        <div class="headerfont card-header bg-light m-0 p-0 border-bottom-0"> 
+            <span class="">Contact Support</span> 
+            <a href="https://www.google.com/calendar" target="_blank" class="fas fa-calendar-alt text-muted fileControlBtn float-right align-middle"></a> 
+            <hr class="bg-primary">
+        </div>
+        <div class="card-body m-0 p-0 ">
+			<span class="parafont header_main secondary-size text-dark">
+				<p class="mb-0">We take our commitment to our users seriously. If you need our help with your user account, have questions about how we use the platform or are experiencing technical difficulties, please do not hesitate to contact us.</p>
+			</span>
+            <form action="/users/getHelpForm" method="POST">
+				<%- include ('./partials/messages') %>
+                <div class="form-group card-body m-0 pb-0">
+                    <label for="subject">Subject </label>
+                    <input class="form-control  form-control-sm" type="text" placeholder="" value="<%= %>" id="subject" name="subject">
+                </div>
+                <div class="form-group card-body mb-0">
+                    <label for="message">Message </label>
+                    <textarea id="message" class="form-control  form-control-sm" rows="7" placeholder="" name="message"></textarea>
+                </div>
+                <input class="btn btn-primary float-right" type="submit" value="Send">
+            </form>
+		</div>
+		<div class="text-muted px-3"><i class="fas fa-phone-alt"></i>&nbsp;&nbsp; +91 - 9820422941</div>
+		<div class="text-muted px-3"><i class="fas fa-envelope"></i>&nbsp;&nbsp; support@cloudcastle.com</div>
+        <hr>
+        <div id="todoLIstTime" class="card-footer bg-light m-0 p-0 border-top-0 parafont text-right secondary-size">
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+            <script>
+                document.getElementById("todoLIstTime").innerHTML = moment().format('MMMM Do, YYYY');
+            </script>
+        </div>
+    </div>
+	<!--End of Right Sidebar-->
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalPreview" tabindex="-1" role="dialog" aria-labelledby="exampleModalPreviewLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content p-4 blur-bg">
+      <div class="modal-header border-0">
+        <span class="modal-title headerfont header_main" id="exampleModalPreviewLabel">Upload Files
+        	<br>
+	    	<span class="parafont header_secondary">Having problems? Get help.</span>
+		</span>
+        <button type="button" class="close p-0 text-dark accentColor" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body border-0">
+      	<form action="/uploadFile/uploadf" method="POST" enctype="multipart/form-data">
+      		<div class="custom-file mb-3">
+				<br>
+		    	<input type="file" class="custom-file-input m-auto h-100" id="customFile" name="filename" multiple>
+		    	<label class="custom-file-label border-0 m-auto h-100" for="customFile">
+		    		<img class="align-middle" src="/assets/baseline_cloud_upload_black_18dp.png"> Add file..
+		    	</label>
+		    	<br>	
+
+
+				<!--First selection opions-->
+				<div  id="options-section">
+		    	<ul class="nav nav-tabs">
+				  <li class="nav-item">
+				    <a id="options" class="nav-link active" onclick="options()">Options</a>
+				  </li>
+				  <li class="nav-item">
+				    <a id="description" class="nav-link" onclick="description()">Description</a>
+				  </li>
+				  <li class="nav-item">
+				    <a id="advanced" class="nav-link" onclick="advanced()">Advanced</a>
+				  </li>
+				</ul>
+				<div class="bg-white m-0 border border-top-0">
+				    <div class="card-group">
+					    <div class="card border-0">
+					    	<div class="card-body">
+					    	    <p class="card-text">
+					    	    <label class="">Category</label>
+					            <select class="form-control" id="sel1" name="category">
+					                <option value="work">Work</option>
+					                <option value="personal">Personal</option>
+					            	<option value="other">Other</option>
+					            </select>
+					        	</p>
+					    	</div>
+					    </div>
+					  	<div class="card border-0">
+					    	<div class="card-body">
+					        	<p class="card-text">
+					        	<label class="headerfont">Notify by email</label>
+					        	<select class="form-control input-lg" id="sel2" name="notify">
+					        	    <option value="opt1">Nobody</option>
+					        	    <option value="opt2">Only me</option>
+					        	    <!-- <option value="opt4">Everybody on the project</option> -->
+					        	    <option value="opt3" disabled>Custom</option>
+					        	</select>
+					        	</p>
+					    	</div>
+						</div>
+						<div class="card border-0">
+					  		<div class="card-body">
+					        	<p class="card-text">
+					       		<label class="headerfont">Privacy</label>
+						       	<select class="form-control" id="sel3" name="privacy">
+						       	    <option value="opt1">Only me</option>
+						       	    <option value="opt2">Everybody on the project</option>
+						       	    <option value="opt3" disabled>Custom</option>
+						        	</select>
+						        </p>
+					    	</div>
+					    </div>
+					</div>
+				</div>
+			</div>
+					<!--End of First selection opions-->
+					<!--Second selection Description-->
+					<div id="description-section">
+		    	<ul class="nav nav-tabs">
+				  <li class="nav-item">
+				    <a id="options" class="nav-link" onclick="options()">Options</a>
+				  </li>
+				  <li class="nav-item">
+				    <a id="description" class="nav-link active" onclick="description()">Description</a>
+				  </li>
+				  <li class="nav-item">
+				    <a id="advanced" class="nav-link" onclick="advanced()">Advanced</a>
+				  </li>
+				</ul>
+				<div class="bg-white m-0 border border-top-0">
+					<div class="p-4">
+						<label class="header_main headerfont">Description</label>
+						<textarea id="description" class="form-control" rows="5" placeholder="Add description of uploaded file.." name="desc"></textarea>
+					</div>	
+				</div>
+			</div>
+					<!--end of Second selection opions-->
+					<!--Third selection Advanced-->
+					<div id="advanced-section">
+		    	<ul class="nav nav-tabs">
+				  <li class="nav-item">
+				    <a id="options" class="nav-link" onclick="options()">Options</a>
+				  </li>
+				  <li class="nav-item">
+				    <a id="description" class="nav-link" onclick="description()">Description</a>
+				  </li>
+				  <li class="nav-item">
+				    <a id="advanced" class="nav-link active" onclick="advanced()">Advanced</a>
+				  </li>
+				</ul>
+				<div class="bg-white m-0 border border-top-0">
+		  			<div id="" class="card  border-0">
+		                <ul class="list-group list-group-flush headerfont">
+		                    
+		                    <li class="list-group-item">
+			                    <div id="options-section" class="card-group">
+								    <div class="card border-0">
+								    	<div class="card-body">
+								    	    <p class="card-text">				         
+								    	    Archive
+			                                <label class="switch ">
+									          <input type="checkbox" class="primary" value="1" name="archive">
+									          <span class="slider round"></span>
+									        </label>
+								        	</p>
+								    	</div>
+								  	</div>
+								  	<div class="card border-0">
+								    	<div class="card-body">
+								        	<p class="card-text">
+								        	Conseal
+			                                <label class="switch ">
+									        	<input type="checkbox" class="primary" value="1" name="conseal">
+									          	<span class="slider round"></span>
+									        </label>
+								        	</p>
+								    	</div>
+									</div>              
+								    <div class="card border-0">
+								    	<div class="card-body">
+								    	    <p class="card-text">
+								    	    Hidden
+			                                <label class="switch ">
+									          	<input type="checkbox" class="primary" value="1" name="hidden">
+									          	<span class="slider round"></span>
+									        </label>
+								        	</p>
+								    	</div>
+								  	</div>
+								</div>  
+		                    </li>
+		                </ul> 
+		            </div>
+		        </div>
+			</div>
+			<!--end of Third selection Advanced-->
+			<input type="hidden" value="0" name="favourite">
+			<br>
+			<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+			<button type="submit" class="btn btn-primary">Upload</button>
+		</div>
+	</form>
+	<script type="application/javascript">
+    	$('input[type="file"]').change(function(e){
+        var fileName = e.target.files[0].name;
+        $('.custom-file-label').html(fileName);
+      });
+	</script>
+</div>
+<div class="modal-footer border-0">      
+</div>
+</div>
+</div>
+</div>
+		<!-- Modal End-->
+
+<div class="container-fuid main-body">
+	<div class="container-fuid header_main sticky-top ml-3 py-2">
+		<form action="/uploadFile/dashboard" method="GET">
+			<div class="input-group">
+	        	<button class="input-group-prepend input-group-text border-0 bg-light"><i class="fas fa-search "></i></button>
+                <input class="form-control parafont bg-light border-0 searchbar" type="text" placeholder="Search for something" name="orignalFileName" value="<%= searchOptions.orignalFileName %>">
+            	<span class="input-group-append input-group-text p-0 border-0 bg-light headerfont">
+					<span class="ml-2 header_main"><%= firstname + '  ' + lastname %></span>
+					<a href="/users/profile/edit"><img class="rounded-circle ml-2 mr-2 profile_pic" src="<%= profilePicPath %>" alt="pic"></a>
+					<div class="dropdown"><button class="dropdown-toggles fa fa-ellipsis-v header_main fileControlBtn form-control pl-1 py-0 bg-light" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
+						<div class="dropdown-menu dropdown-menu-right parafont nav-menu w-auto blur-bg">
+							<a class="dropdown-item pt-2 mx-3 w-auto form-control text-dark darkModeDropdownItem" href="/users/profile">Profile</a>
+							<div class="dropdown-divider"></div>
+							<a class="dropdown-item pt-2 mx-3 w-auto form-control text-dark darkModeDropdownItem" href="/users/profile/edit">Edit Profile</a>
+							<a class="dropdown-item pt-2 mx-3 w-auto disabled href="#">Edit Work Availability</a>
+							<div class="dropdown-divider"></div>
+							<a class="dropdown-item pt-2 mx-3 w-auto form-control text-dark darkModeDropdownItem" href="/users/uploads">My Uploads</a>
+							<div class="dropdown-divider"></div>
+							<a class="dropdown-item pt-2 mx-3 w-auto form-control text-dark darkModeDropdownItem" href="/users/settings">Account Settings</a>
+							<a class="dropdown-item pt-2 mx-3 w-auto form-control text-dark darkModeDropdownItem" href="/users/help">Get Help</a>
+							<div class="dropdown-divider"></div>
+							<a class="dropdown-item pt-2 mx-3 w-auto form-control text-dark darkModeDropdownItem" onclick="document.getElementById('logoutBtn').click()">Sign Out</a>
+						</div>
+					</div>				
+				</span>
+            </div>
+		</form>
+	</div>
+
+	<!--Hero header of page-->
+	<div id="heroHeader" class="container w-75 mx-0 sticky-top hero-header">
+		<div class="px-3 py-1 bg-light">
+			<b class="headerfont header_main">Get Help</b>
+			<br>
+            <div class="parafont header_main secondary-size">Find answers to your queries.</div>
+		</div>
+	</div>
+	<!--End of hero header-->
+	<br>
+
+	<div class="container w-75 m-0">
+		<div class="align-middle">
+            <center>
+                <span class="headerfont secondary-size text-primary darkmode-ignore">FAQ</span>
+                <br>
+                <span class="header_main headerfont h3 text-dark darkmode-ignore">Have any Questions?</span>
+                <br>
+                <nav class="navbar">
+                    <ul class="navbar mx-auto parafont">
+                        <a href="#general"><li class="nav-item btn mx-2 text-muted darkmode-ignore">General</li></a>
+                        <a href="#security"><li class="nav-item btn mx-2 text-muted">Security</li></a>
+                        <a href="#uploads"><li class="nav-item btn mx-2 text-muted">Uploads</li></a>
+                        <a href="#account"><li class="nav-item btn mx-2 text-muted">Account</li></a>
+                    </ul>
+                </nav>
+                <hr>
+            </center>
+            <br>
+            
+            <!-- General Section -->
+            <div id="general" class="mb-5 darkmodeGetHelpText">
+                <center><span class="headerfont text-center text-primary darkmode-ignore">- General -</span></center>
+                <br>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="card border-0">
+                            <div class="card-body">
+                                <h5 class="card-title darkmode-ignore">What is Cloud Castle?</h5>
+                                <p class="card-text darkmode-ignore">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Pellentesque elit ullamcorper dignissim cras tincidunt. Donec et odio pellentesque diam volutpat commodo sed egestas. Tempor commodo ullamcorper a lacus vestibulum sed arcu non odio. Amet mattis vulputate enim nulla aliquet porttitor.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="card border-0">
+                            <div class="card-body">
+                                <h5 class="card-title">Is Cloud Castle on other browsers other than chrome?</h5>
+                                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Urna cursus eget nunc scelerisque viverra mauris. Elementum eu facilisis sed odio. Ac tincidunt vitae semper quis lectus nulla. Dignissim convallis aenean et tortor at risus viverra. Sit amet risus nullam eget felis eget.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-4">
+                    <div class="col-sm-6">
+                        <div class="card border-0">
+                            <div class="card-body">
+                                <h5 class="card-title">How do I know that i have the latest version?</h5>
+                                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Molestie nunc non blandit massa enim nec. Et malesuada fames ac turpis egestas maecenas pharetra. Velit dignissim sodales ut eu sem integer vitae justo.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="card border-0">
+                            <div class="card-body">
+                                <h5 class="card-title">How do I invite others to use Cloud Castle?</h5>
+                                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sed elementum tempus egestas sed. Ultrices mi tempus imperdiet nulla malesuada.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Security Section -->
+            <div id="security" class="m-5 darkmodeGetHelpText">
+                <center><span class="headerfont text-center text-primary darkmode-ignore">- Security -</span></center>
+                <br>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="card border-0">
+                            <div class="card-body">
+                                <h5 class="card-title">Is our service safe to use?</h5>
+                                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Pellentesque elit ullamcorper dignissim cras tincidunt. Donec et odio pellentesque diam volutpat commodo sed egestas. Tempor commodo ullamcorper a lacus vestibulum sed arcu non odio. Amet mattis vulputate enim nulla aliquet porttitor.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="card border-0">
+                            <div class="card-body">
+                                <h5 class="card-title">How can I see my passwords later?</h5>
+                                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Urna cursus eget nunc scelerisque viverra mauris. Elementum eu facilisis sed odio. Ac tincidunt vitae semper quis lectus nulla. Dignissim convallis aenean et tortor at risus viverra. Sit amet risus nullam eget felis eget.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-4">
+                    <div class="col-sm-6">
+                        <div class="card border-0">
+                            <div class="card-body">
+                                <h5 class="card-title">Do I need a unique password for every account?</h5>
+                                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Molestie nunc non blandit massa enim nec. Et malesuada fames ac turpis egestas maecenas pharetra. Velit dignissim sodales ut eu sem integer vitae justo.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="card border-0">
+                            <div class="card-body">
+                                <h5 class="card-title">What makes a strong password?</h5>
+                                <p class="card-text">porta non pulvinar neque laoreet suspendisse interdum consectetur libero id faucibus nisl tincidunt eget nullam non nisi est sit amet facilisis magna etiam</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Uploads Section -->
+            <div id="uploads" class="m-5 darkmodeGetHelpText">
+                <center><span class="headerfont text-center text-primary darkmode-ignore">- Uploads -</span></center>
+                <br>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="card border-0">
+                            <div class="card-body">
+                                <h5 class="card-title">Where are my uploads stored?</h5>
+                                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Pellentesque elit ullamcorper dignissim cras tincidunt. Donec et odio pellentesque diam volutpat commodo sed egestas. Tempor commodo ullamcorper a lacus vestibulum sed arcu non odio. Amet mattis vulputate enim nulla aliquet porttitor.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="card border-0">
+                            <div class="card-body">
+                                <h5 class="card-title">Are my uploads safe?</h5>
+                                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Urna cursus eget nunc scelerisque viverra mauris. Elementum eu facilisis sed odio. Ac tincidunt vitae semper quis lectus nulla. Dignissim convallis aenean et tortor at risus viverra. Sit amet risus nullam eget felis eget.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-4">
+                    <div class="col-sm-6">
+                        <div class="card border-0">
+                            <div class="card-body">
+                                <h5 class="card-title">Can anyone see my uploads?</h5>
+                                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Molestie nunc non blandit massa enim nec. Et malesuada fames ac turpis egestas maecenas pharetra. Velit dignissim sodales ut eu sem integer vitae justo.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="card border-0">
+                            <div class="card-body">
+                                <h5 class="card-title">How do I upload more than one file at a time?</h5>
+                                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sed elementum tempus egestas sed. Ultrices mi tempus imperdiet nulla malesuada.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Account Section -->
+            <div id="account" class="m-5 darkmodeGetHelpText">
+                <center><span class="headerfont text-center text-primary darkmode-ignore">- Accounts -</span></center>
+                <br>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="card border-0">
+                            <div class="card-body">
+                                <h5 class="card-title">Can I have more than one Account?</h5>
+                                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Pellentesque elit ullamcorper dignissim cras tincidunt. Donec et odio pellentesque diam volutpat commodo sed egestas. Tempor commodo ullamcorper a lacus vestibulum sed arcu non odio.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="card border-0">
+                            <div class="card-body">
+                                <h5 class="card-title">How do I delete my account?</h5>
+                                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Urna cursus eget nunc scelerisque viverra mauris. Elementum eu facilisis sed odio. Ac tincidunt vitae semper quis lectus nulla. Dignissim convallis aenean et tortor at risus viverra. Sit amet risus nullam eget felis eget.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-4">
+                    <div class="col-sm-6">
+                        <div class="card border-0">
+                            <div class="card-body">
+                                <h5 class="card-title">Who can access my Account?</h5>
+                                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Molestie nunc non blandit massa enim nec. Et malesuada fames ac turpis egestas maecenas pharetra. Velit dignissim sodales ut eu sem integer vitae justo.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="card border-0">
+                            <div class="card-body">
+                                <h5 class="card-title">How can I change the email-id to my account?</h5>
+                                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sed elementum tempus egestas sed. Ultrices mi tempus imperdiet nulla malesuada. Velit dignissim sodales ut eu sem integer vitae justo. Velit dignissim sodales ut eu sem integer vitae justo.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End of FAQ -->
+            <center><a href="#heroHeader"><span class="headerfont text-center text-primary darkmode-ignore">-- back to top --</span></a></center>
+            <br>
+            <br>
+            <!-- Help footer -->
+            <div class="container-fuid rounded bg-primary">
+                <div class="text-white headerfont pt-4 px-4"><b>Contact Support</b></div>
+                <p class="parafont text-white px-5 pt-1 pb-4">We understand you may have questions that are not answered in the FAQ section. <br> If you cannot find the answer to your question please contact us at <b>support@cloudcastle.com</b></p>
+            </div>
+		</div>
+	</div>
+</div>
+
+</div>
+	<script>
+		$(function () {
+  			$('[data-toggle="popover"]').popover()
+		})
+	</script>
+	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</body>
+</html>

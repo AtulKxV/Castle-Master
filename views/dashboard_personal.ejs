@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!--Bootstrap-->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<!--Google Fonts-->
+	<link href="https://fonts.googleapis.com/css?family=Lato|Open+Sans&display=swap" rel="stylesheet">
+	<!--Icons FontAwesome-->
+	<script src="https://kit.fontawesome.com/2cfd103c00.js" crossorigin="anonymous"></script>
+	<!--<script src="https://use.fontawesome.com/5027b1474c.js"></script>-->
+	<link href="https://use.fontawesome.com/releases/v5.0.4/css/all.css" rel="stylesheet">
+	<!--Main CSS-->
+	<link rel="stylesheet" type="text/css" href="/stylesheets/main.css">
+	<title>Cloud Castle</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<!--Tab Icon-->
+	<link rel="shortcut icon" type="image/x-icon" href="/assets/icons8-castle-64.ico" />
+</head>
+<body onload="getCookie();">
+<div class="container-fuid m-0 p-0">
+	<div class="container-fuid m-0 sidenav bg-light p-3">
+		<div class="headerfont">
+			<a class="headerfont logo_link" href="/">
+				<img class="img-fluid logo m-1" src="/assets/icons8-castle-64.png">
+			</a>
+			<span class="m-0 p-0 align-bottom text-dark"><b>Cloud Castle</b></span>
+		</div>
+		<hr class="darkModeHRLogo">
+		<br>
+		<center>
+			<button id="modalActivate" type="button" class="btn align-text-top btn-primary w-75 headerfont" data-toggle="modal" data-target="#exampleModalPreview"><img class="align-middle mr-2" src="/assets/outline_cloud_upload_white_18dp.png">    Upload</button>
+		</center>
+
+		<div class="mt-4">
+			<ul class="list-group list-group-flush headerfont bg-light">
+				<a href="/uploadFile/dashboard" class="page-link p-0 m-0 border-0 text-dark sidebarListItem"><li class="list-group-item bg-light border-0 pb-0 pl-4"><i class="fa fa-home header_main pr-3 text-dark sidebarListItem" aria-hidden="true"></i>Home</li></a>					
+				<br>
+				<a href="/uploadFile/dashboard/recent" class="page-link p-0 m-0 border-0 text-dark sidebarListItem"><li class="list-group-item bg-light border-0 pb-0 pl-4"><i class="fa fa-clock-o fa-flip-horizontal header_main pl-3 text-dark sidebarListItem" aria-hidden="true"></i>Recent</li></a>
+				<a href="/uploadFile/dashboard/favourite" class="page-link p-0 m-0 border-0 text-dark sidebarListItem"><li class="list-group-item bg-light border-0 pb-0 pl-4"><i class="fa fa-star header_main pr-3 text-dark sidebarListItem"></i>Starred</li></a>	
+				<br>
+				<!-- <a href="/uploadFile/dashboard/projects" class="page-link p-0 m-0 border-0 text-dark"><li class="list-group-item bg-light border-0 pb-0 pl-4"><i class="fa fa-users header_main pr-3"></i>Teams</li></a> -->
+				<a href="/uploadFile/dashboard/archives" class="page-link p-0 m-0 border-0 text-dark sidebarListItem"><li class="list-group-item bg-light border-0 pb-0 pl-4"><i class="fas fa-archive header_main pr-3 text-dark sidebarListItem"></i>Archives</li></a>
+				<br>
+				<li class="list-group-item bg-light border-0 pb-0 pl-4"><i class="fa fa-tags header_main pr-3 text-dark"></i><span class="text-dark sidebarListItem">Tags</span>
+					<ul class="list-group parafont">
+						<a href="/uploadFile/dashboard/work" class="page-link p-0 border-0 text-dark"><li class="list-group-item bg-light header_main secondary-size border-0 pt-2 pb-0 m-0 sidebarListItemSecondary"><i class="fa fa-briefcase p-2 sidebarListItemSecondary"></i>Work</li></a>
+						<a href="/uploadFile/dashboard/personal" class="page-link p-0 m-0 border-0 text-dark"><li class="list-group-item bg-light header_main secondary-size border-0 py-0  sidebarListItemSecondary"><i class="fa fa-user p-2 sidebarListItemSecondary"></i>Personal</li></a>
+						<a href="/uploadFile/dashboard/other" class="page-link p-0 m-0 border-0 text-dark"><li class="list-group-item bg-light header_main secondary-size border-0 py-0 sidebarListItemSecondary"><i class="fa fa-folder p-2 sidebarListItemSecondary"></i>Other</li></a>
+					</ul>
+				</li>
+				<br>
+				<a href="/uploadFile/dashboard/trash" class="page-link p-0 m-0 border-0 text-dark"><li class="list-group-item bg-light border-0 pb-0 pl-4 sidebarListItem"><i class="fa fa-trash header_main pr-3 text-dark sidebarListItem"></i>Trash</li></a>
+			</ul>
+		</div>
+
+
+
+
+		<div class="logoutsection fixed-bottom align-text-top">
+		<hr class="my-0 darkModeHR">
+        	<a href="/users/logout" id="logoutBtn" class="btn btn-link w-100 h-100 p-3 headerfont header_main text-dark">Logout</a>
+		</div>
+	</div>
+
+
+
+	<!--Right Sidebar-->
+		<%- include('../views/partials/_todoList.ejs') %>
+	<!--End of Right Sidebar-->
+
+
+	<!-- Button trigger modal -->
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalPreview" tabindex="-1" role="dialog" aria-labelledby="exampleModalPreviewLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content p-4 blur-bg">
+      <div class="modal-header border-0">
+        <span class="modal-title headerfont header_main" id="exampleModalPreviewLabel">Upload Files
+        	<br>
+	    	<span class="parafont header_secondary">Having problems? Get help.</span>
+		</span>
+        <button type="button" class="close p-0 text-dark accentColor" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body border-0">
+      	<form action="/uploadFile/uploadf" method="POST" enctype="multipart/form-data">
+      		<div class="custom-file mb-3">
+				<br>
+		    	<input type="file" class="custom-file-input m-auto h-100" id="customFile" name="filename" multiple>
+		    	<label class="custom-file-label border-0 m-auto h-100" for="customFile">
+		    		<img class="align-middle" src="/assets/baseline_cloud_upload_black_18dp.png"> Add file..
+		    	</label>
+		    	<br>	
+
+
+				<!--First selection opions-->
+				<div  id="options-section">
+		    	<ul class="nav nav-tabs">
+				  <li class="nav-item">
+				    <a id="options" class="nav-link active" onclick="options()">Options</a>
+				  </li>
+				  <li class="nav-item">
+				    <a id="description" class="nav-link" onclick="description()">Description</a>
+				  </li>
+				  <li class="nav-item">
+				    <a id="advanced" class="nav-link" onclick="advanced()">Advanced</a>
+				  </li>
+				</ul>
+				<div class="bg-white m-0 border border-top-0">
+				    <div class="card-group">
+					    <div class="card border-0">
+					    	<div class="card-body">
+					    	    <p class="card-text">
+					    	    <label class="">Category</label>
+					            <select class="form-control" id="sel1" name="category">
+					                <option value="work">Work</option>
+					                <option value="personal">Personal</option>
+					            	<option value="other">Other</option>
+					            </select>
+					        	</p>
+					    	</div>
+					    </div>
+					  	<div class="card border-0">
+					    	<div class="card-body">
+					        	<p class="card-text">
+					        	<label class="headerfont">Notify by email</label>
+					        	<select class="form-control input-lg" id="sel2" name="notify">
+					        	    <option value="opt1">Nobody</option>
+					        	    <option value="opt2">Only me</option>
+					        	    <!-- <option value="opt4">Everybody on the project</option> -->
+					        	    <option value="opt4" disabled>Custom</option>
+					        	</select>
+					        	</p>
+					    	</div>
+						</div>
+						<div class="card border-0">
+					  		<div class="card-body">
+					        	<p class="card-text">
+					       		<label class="headerfont">Privacy</label>
+						       	<select class="form-control" id="sel3" name="privacy">
+						       	    <option value="opt1">Only me</option>
+						       	    <option value="opt2">Everybody on the project</option>
+						       	    <option value="opt3" disabled>Custom</option>
+						        	</select>
+						        </p>
+					    	</div>
+					    </div>
+					</div>
+				</div>
+			</div>
+					<!--End of First selection opions-->
+					<!--Second selection Description-->
+					<div id="description-section">
+		    	<ul class="nav nav-tabs">
+				  <li class="nav-item">
+				    <a id="options" class="nav-link" onclick="options()">Options</a>
+				  </li>
+				  <li class="nav-item">
+				    <a id="description" class="nav-link active" onclick="description()">Description</a>
+				  </li>
+				  <li class="nav-item">
+				    <a id="advanced" class="nav-link" onclick="advanced()">Advanced</a>
+				  </li>
+				</ul>
+				<div class="bg-white m-0 border border-top-0">
+					<div class="p-4">
+						<label class="header_main headerfont">Description</label>
+						<textarea id="description" class="form-control" rows="5" placeholder="Add description of uploaded file.." name="desc"></textarea>
+					</div>	
+				</div>
+			</div>
+					<!--end of Second selection opions-->
+					<!--Third selection Advanced-->
+					<div id="advanced-section">
+		    	<ul class="nav nav-tabs">
+				  <li class="nav-item">
+				    <a id="options" class="nav-link" onclick="options()">Options</a>
+				  </li>
+				  <li class="nav-item">
+				    <a id="description" class="nav-link" onclick="description()">Description</a>
+				  </li>
+				  <li class="nav-item">
+				    <a id="advanced" class="nav-link active" onclick="advanced()">Advanced</a>
+				  </li>
+				</ul>
+				<div class="bg-white m-0 border border-top-0">
+		  			<div id="" class="card  border-0">
+		                <ul class="list-group list-group-flush headerfont">
+		                    
+		                    <li class="list-group-item">
+			                    <div id="options-section" class="card-group">
+								    <div class="card border-0">
+								    	<div class="card-body">
+								    	    <p class="card-text">				         
+								    	    Archive
+			                                <label class="switch ">
+									          <input type="checkbox" class="primary" value="1" name="archive">
+									          <span class="slider round"></span>
+									        </label>
+								        	</p>
+								    	</div>
+								  	</div>
+								  	<div class="card border-0">
+								    	<div class="card-body">
+								        	<p class="card-text">
+								        	Conseal
+			                                <label class="switch ">
+									        	<input type="checkbox" class="primary" value="1" name="conseal">
+									          	<span class="slider round"></span>
+									        </label>
+								        	</p>
+								    	</div>
+									</div>              
+								    <div class="card border-0">
+								    	<div class="card-body">
+								    	    <p class="card-text">
+								    	    Hidden
+			                                <label class="switch ">
+									          	<input type="checkbox" class="primary" value="1" name="hidden">
+									          	<span class="slider round"></span>
+									        </label>
+								        	</p>
+								    	</div>
+								  	</div>
+								</div>  
+		                    </li>
+		                </ul> 
+		            </div>
+		        </div>
+			</div>
+			<!--end of Third selection Advanced-->
+			<input type="hidden" value="0" name="favourite">
+			<br>
+			<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+			<button type="submit" class="btn btn-primary">Upload</button>
+		</div>
+	</form>
+	<script type="application/javascript">
+    	$('input[type="file"]').change(function(e){
+        var fileName = e.target.files[0].name;
+        $('.custom-file-label').html(fileName);
+      });
+	</script>
+</div>
+<div class="modal-footer border-0">      
+</div>
+</div>
+</div>
+</div>
+		<!-- Modal End-->
+
+<div class="container-fuid main-body">
+	<div class="container-fuid header_main sticky-top ml-3 py-2">
+		<form action="/uploadFile/dashboard" method="GET">
+			<div class="input-group">
+	        	<button class="input-group-prepend input-group-text border-0 bg-light"><i class="fas fa-search "></i></button>
+                <input class="form-control parafont bg-light border-0 searchbar" type="text" placeholder="Search for something" name="orignalFileName" value="<%= searchOptions.orignalFileName %>">
+            	<span class="input-group-append input-group-text p-0 border-0 bg-light headerfont">
+					<span class="ml-2 header_main"><%= firstname + '  ' + lastname %></span>
+					<a href="/users/profile/edit"><img class="rounded-circle ml-2 mr-2 profile_pic" src="<%= profilePicPath %>" alt="pic"></a>
+					<div class="dropdown"><button class="dropdown-toggles fa fa-ellipsis-v header_main fileControlBtn form-control pl-1 py-0 bg-light" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
+						<div class="dropdown-menu dropdown-menu-right parafont nav-menu w-auto blur-bg">
+						  <a class="dropdown-item pt-2 mx-3 w-auto form-control text-dark darkModeDropdownItem" href="/users/profile">Profile</a>
+						  <div class="dropdown-divider"></div>
+						  <a class="dropdown-item pt-2 mx-3 w-auto form-control text-dark darkModeDropdownItem" href="/users/profile/edit">Edit Profile</a>
+						  <a class="dropdown-item pt-2 mx-3 w-auto disabled href="#">Edit Work Availability</a>
+						  <div class="dropdown-divider"></div>
+						  <a class="dropdown-item pt-2 mx-3 w-auto form-control text-dark darkModeDropdownItem" href="/users/uploads">My Uploads</a>
+						  <div class="dropdown-divider"></div>
+						  <a class="dropdown-item pt-2 mx-3 w-auto form-control text-dark darkModeDropdownItem" href="/users/settings">Account Settings</a>
+						  <a class="dropdown-item pt-2 mx-3 w-auto form-control text-dark darkModeDropdownItem" href="/users/help">Get Help</a>
+						  <div class="dropdown-divider"></div>
+						  <a class="dropdown-item pt-2 mx-3 w-auto form-control text-dark darkModeDropdownItem" onclick="document.getElementById('logoutBtn').click()">Sign Out</a>
+						</div>
+					</div>				
+				</span>
+            </div>
+		</form>
+	</div>
+
+	<!--Hero header of page-->
+	<div class="container w-75 mx-0 sticky-top hero-header">
+		<div class="px-3 py-1 bg-light">
+			<b class="headerfont header_main">Personal</b>
+			<br>
+			<span class="parafont header_main secondary-size">All your personal uploads are displayed here.</span>
+		</div>
+	</div>
+	<!--End of hero header-->
+	<br>
+
+
+	<div class="container w-75 m-0 file-list">
+		<div class="align-middle mt-4">
+			<% var i=1%>
+			<% files.forEach( file =>{ %>
+					<b class="mr-1"><%= i %>.</b>
+					<%= file.orignalFileName %>
+					<span class="dropdown">
+						<button class="dropdown-toggles fa fa-ellipsis-v small-icons fileControlBtn" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
+						<div class="dropdown-menu dropdown-menu-right parafont nav-menu w-auto blur-bg">
+							<button id="dropdownModalActivate" class="dropdown-item pt-1 form-control w-100" onclick="document.getElementById('shareLinkModal').value='C:/Users/Reuben/Desktop/castle/public/uploads/uploadedFiles/' + '<%= file.fileName %>'" data-toggle="modal" data-target="#exampleModalCenterShare">Share</button>
+							<button class="dropdown-item pt-0 w-100 form-control w-100" onclick="document.getElementById('fileId').value='<%= file.id %>'; document.getElementById('resetValue').value='<%= file.orignalFileName %>'" data-toggle="modal" data-target="#exampleModalCenterRename">Rename</button>
+							<% if(file.favourite == 0 ){ %>
+								<%- include('../views/partials/favouriteFormDropdown.ejs', {url : `/fileControls/${file.id}/favourite` })%>
+							<% } else { %>
+								<%- include('../views/partials/nonFavouriteFormDropdown.ejs', {url : `/fileControls/${file.id}/favourite` })%>
+							<% } %>
+							<div class="dropdown-divider"></div>
+							<button class="dropdown-item pt-1 w-100 form-control disabled">Make a copy</button>
+							<button class="dropdown-item pt-0 w-100 form-control" href="users/getHelp">Report abuse</button>
+							<div class="dropdown-divider"></div>
+							<button class="dropdown-item pt-0 w-100 form-control w-100" onclick="document.getElementById('detailsLabel').innerHTML='<%= file.orignalFileName %>'; document.getElementById('detailsDataType').innerHTML='<%= file.mimetype %>'; var sizeInMB = <%= file.size %>/1000000; document.getElementById('detailsDataSize').innerHTML=sizeInMB.toFixed(1) +'&nbsp;MB &nbsp;' + '(<%= file.size %> bytes)'; document.getElementById('detailsDataCreated').innerHTML='<%= file.uploadDate %>'; document.getElementById('detailsDataDescription').innerHTML = '<%= file.description %>' " data-toggle="modal" data-target="#exampleModalCenterDetails">Details</button>
+							<div class="dropdown-divider"></div>
+							<%- include('../views/partials/deleteFormDropdown.ejs', { url: `/fileControls/${file.id}` }) %>							
+						  </div>
+					</span>
+					<%- include('../views/partials/deleteForm.ejs', { url: `/fileControls/${file.id}` }) %>
+					<%- include('../views/partials/download.ejs', { url: `/fileControls/${file.id}` }) %>
+					<% if(file.favourite == 0 ){ %>
+						<%- include('../views/partials/favouriteForm.ejs', {url : `/fileControls/${file.id}/favourite` })%>
+					<% } else { %>
+						<%- include('../views/partials/nonFavouriteForm.ejs', {url : `/fileControls/${file.id}/favourite` })%>
+					<% } %>
+					<hr class='mt-2 mb-3'>
+					<% i++ %>
+				<% }) %>
+		</div>
+	</div>
+	<!-- Dropdown Menu Modal -->
+	<!-- Shareable Link Modal -->
+	<div class="modal fade" id="exampleModalCenterShare" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+		<div class="modal-content p-4 blur-bg">
+			<div class="modal-header border-0">
+				<span class="modal-title headerfont header_main" id="exampleModalPreviewLabel">Share with others
+					<br>
+					<span class="parafont header_secondary">Get shareable link.<i class="fas fa-external-link-alt p-1"></i></span>
+				</span>
+				<button type="button" class="close p-0 text-dark accentColor" data-dismiss="modal" aria-label="Close">
+				  <span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body border-0">
+				<div class="input-group mb-3">
+					<input id="shareLinkModal" class="form-control border-0" type="text" value="">
+					<div class="input-group-append">
+					<span id="copyLinkShortcut" class="input-group-text border-0" onclick="copyLinkFunction()">Copy link</span>
+					</div>
+				</div>
+				<div id="copyLinkConfirmation" class="parafont header_secondary"></div>
+			</div>
+			<div class="modal-footer border-0">
+			<button type="button" class="btn btn-primary" data-dismiss="modal">Done</button>
+			</div>
+		</div>
+		</div>
+	</div>
+	<!-- End of Shareable Link Modal -->
+
+	<!-- Rename Modal -->
+	<div class="modal fade" id="exampleModalCenterRename" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+		<div class="modal-content p-4 blur-bg">
+			<div class="modal-header border-0">
+				<span class="modal-title headerfont header_main" id="exampleModalPreviewLabel">Rename
+					<br>
+				</span>
+				<button type="button" class="close p-0 text-dark accentColor" data-dismiss="modal" aria-label="Close">
+				  <span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body border-0">
+				<div class="input-group mb-3">
+					<form action="/fileControls/fileRename" method="POST" id="renameForm" class="w-100">
+						<input id="resetValue" class="form-control border-0" type="text" placeholder="Enter new name" value="" name="newName">
+						<input id="fileId" type="hidden" value="" name="fileId">
+					</form>
+				</div>
+				<div id="copyLinkConfirmation" class="parafont header_secondary"></div>
+			</div>
+			<div class="modal-footer border-0">
+				<button type="reset" class="btn btn-link text-secondary" data-dismiss="modal">Cancel</button>
+				<button type="submit" class="btn btn-primary" onclick="document.getElementById('renameForm').submit()">OK</button>
+			</div>
+		</div>
+		</div>
+	</div>
+	<!-- End of Rename modal -->
+
+	<!-- File details modal -->
+	<div class="modal fade" id="exampleModalCenterDetails" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+		<div class="modal-content p-4 blur-bg">
+			<div class="modal-header border-0">
+				<div class="modal-title headerfont" id="detailsLabel">
+					<br>
+				</div>
+				<button type="button" class="close p-0 text-dark accentColor" data-dismiss="modal" aria-label="Close">
+				  <span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body border-0">
+				<div><table class="table">
+					<tbody>
+					  <tr>
+						<th scope="row">Type</th>
+						<td id="detailsDataType"></td>
+					  </tr>
+					  <tr>
+						<th scope="row">Size</th>
+						<td id="detailsDataSize"></td>
+					  </tr>
+					  <tr>
+						<th scope="row">Created</th>
+						<td id="detailsDataCreated"></td>
+					  </tr>
+					  <tr>
+						<th scope="row">Description</th>
+						<td id="detailsDataDescription"></td>
+					  </tr>
+					</tbody>
+				  </table>
+				</div>
+			</div>
+		</div>
+		</div>
+	</div>
+	<!-- End of File details modal -->
+	</div>
+</div>
+
+</div>
+	<script>
+		$(function () {
+  			$('[data-toggle="popover"]').popover()
+		})
+	</script>
+	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</body>
+</html>

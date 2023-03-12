@@ -1,0 +1,35 @@
+<head>
+    <title>Cloud Castle | Verify</title>
+</head>
+<body>
+    <div><a href="/">Home</a></div>
+    <div id="login_frm" class="card w-50 mx-auto mt-5">
+      <div class="card-header">
+        <span class="card-title h4">Verify</span>
+        <br>
+        <span class="card-subtitle h6 text-muted">Verify your Email Address and OTP to proceed.</span>
+      </div>
+      <div class="card-body">
+        <%- include ('./partials/messages') %>
+        <form action="/users/checkOtpForm" method="POST">
+            <div class="form-group">
+              <label for="email">Email Address: </label>
+              <input id="email" class="form-control" type="email" tabindex="1" placeholder="Enter email.." name="email" required>
+            </div>
+            <div class="form-group">
+              <label for="otp">Otp:</label>
+              <input id="password" class="form-control" type="text" tabindex="2" placeholder="Enter the Otp provided to you..." name="password" required>
+            </div>
+            <div class="form-group align-content-right float-right mt-2">
+                <input class="btn" type="reset" name="reset" value="Clear">
+                <button class="btn btn-primary" tabindex="3" type="submit">Change Password</button>
+            </div>
+          </form>
+        </div>
+        <div class="card-footer text-muted">
+          Don't have an account yet? <a href="/users/register" class="link text-primary"">Create your account.</a>
+        </div>
+    </div>  
+
+      <!--End of Login-->
+</body>

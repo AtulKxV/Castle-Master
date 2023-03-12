@@ -1,0 +1,7 @@
+node_modules
+config/keys.js
+public/uploads
+views/dashboard_project.ejs
+views/teamCreate.ejs
+models/createTeam.js
+.env

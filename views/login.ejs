@@ -1,0 +1,38 @@
+<head>
+    <title>Cloud Castle | Login</title>
+</head>
+<body >
+    <div><a href="/">Home</a></div>
+    <div id="login_frm" class="card w-50 mx-auto mt-5">
+      <div class="card-header">
+        <span class="card-title h4">Login</span>
+        <br>
+        <span class="card-subtitle h6 text-muted">Gain access to your account</span>
+      </div>
+      <div class="card-body">
+        <%- include ('./partials/messages') %>
+        <form action="/users/login" method="POST">
+            <div class="form-group">
+              <label for="email">User-Id: </label>
+              <input id="email" class="form-control" type="email" tabindex="1" value="" placeholder="Enter email.." name="email" required>
+            </div>
+            <div class="form-group">
+              <label for="password">Password:</label>
+              <input class="form-control" id="password" type="password" tabindex="2" value="" name="password" placeholder="Enter password.." aria-describedby="passwordHelpBlock">
+              <small id="passwordHelpBlock" class="form-text text-muted form-group card-body pt-0">
+                Forgot Password? <a href="/users/resetPassword" class="text-primary">Reset</a>
+              </small>
+            </div>
+          <div class="form-group align-content-right float-right mt-2">
+              <input class="btn" type="reset" name="reset" value="Clear">
+              <button id="userLoginBtn" class="btn btn-primary" tabindex="3" type="submit">Login</button>
+          </div>
+        </form>
+        </div>
+        <div class="card-footer text-muted">
+          Don't have an account yet? <a href="/users/register" class="link text-primary"">Create your account.</a>
+        </div>
+    </div>  
+
+      <!--End of Login-->
+</body>

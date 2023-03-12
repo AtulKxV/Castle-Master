@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Cloud Castle</title>
+</head>
+<body onload="getCookie();">
+<div class="container-fuid m-0 p-0">
+	<div class="container-fuid m-0 sidenav bg-light p-3">
+		<div class="headerfont">
+			<a class="headerfont logo_link" href="/">
+				<img class="img-fluid logo m-1" src="/assets/icons8-castle-64.png">
+			</a>
+			<span class="m-0 p-0 align-bottom text-dark"><b>Cloud Castle</b></span>
+		</div>
+		<hr class="darkModeHRLogo">
+		<br>
+		<center>
+			<button id="modalActivate" type="button" class="btn align-text-top btn-primary w-75 headerfont" data-toggle="modal" data-target="#exampleModalPreview"><img class="align-middle mr-2" src="/assets/outline_cloud_upload_white_18dp.png">    Upload</button>
+		</center>
+
+		<div class="mt-4">
+			<ul class="list-group list-group-flush headerfont bg-light">
+				<a href="/uploadFile/dashboard" class="page-link p-0 m-0 border-0 text-dark sidebarListItem"><li class="list-group-item bg-light border-0 pb-0 pl-4"><i class="fa fa-home header_main pr-3 text-dark sidebarListItem" aria-hidden="true"></i>Home</li></a>					
+				<br>
+				<a href="/uploadFile/dashboard/recent" class="page-link p-0 m-0 border-0 text-dark sidebarListItem"><li class="list-group-item bg-light border-0 pb-0 pl-4"><i class="fa fa-clock-o fa-flip-horizontal header_main pl-3 text-dark sidebarListItem" aria-hidden="true"></i>Recent</li></a>
+				<a href="/uploadFile/dashboard/favourite" class="page-link p-0 m-0 border-0 text-dark sidebarListItem"><li class="list-group-item bg-light border-0 pb-0 pl-4"><i class="fa fa-star header_main pr-3 text-dark sidebarListItem"></i>Starred</li></a>	
+				<br>
+				<!-- <a href="/uploadFile/dashboard/projects" class="page-link p-0 m-0 border-0 text-dark"><li class="list-group-item bg-light border-0 pb-0 pl-4"><i class="fa fa-users header_main pr-3"></i>Teams</li></a> -->
+				<a href="/uploadFile/dashboard/archives" class="page-link p-0 m-0 border-0 text-dark sidebarListItem"><li class="list-group-item bg-light border-0 pb-0 pl-4"><i class="fas fa-archive header_main pr-3 text-dark sidebarListItem"></i>Archives</li></a>
+				<br>
+				<li class="list-group-item bg-light border-0 pb-0 pl-4"><i class="fa fa-tags header_main pr-3 text-dark"></i><span class="text-dark sidebarListItem">Tags</span>
+					<ul class="list-group parafont">
+						<a href="/uploadFile/dashboard/work" class="page-link p-0 border-0 text-dark"><li class="list-group-item bg-light header_main secondary-size border-0 pt-2 pb-0 m-0 sidebarListItemSecondary"><i class="fa fa-briefcase p-2 sidebarListItemSecondary"></i>Work</li></a>
+						<a href="/uploadFile/dashboard/personal" class="page-link p-0 m-0 border-0 text-dark"><li class="list-group-item bg-light header_main secondary-size border-0 py-0  sidebarListItemSecondary"><i class="fa fa-user p-2 sidebarListItemSecondary"></i>Personal</li></a>
+						<a href="/uploadFile/dashboard/other" class="page-link p-0 m-0 border-0 text-dark"><li class="list-group-item bg-light header_main secondary-size border-0 py-0 sidebarListItemSecondary"><i class="fa fa-folder p-2 sidebarListItemSecondary"></i>Other</li></a>
+					</ul>
+				</li>
+				<br>
+				<a href="/uploadFile/dashboard/trash" class="page-link p-0 m-0 border-0 text-dark"><li class="list-group-item bg-light border-0 pb-0 pl-4 sidebarListItem"><i class="fa fa-trash header_main pr-3 text-dark sidebarListItem"></i>Trash</li></a>
+			</ul>
+		</div>
+
+
+
+
+		<div class="logoutsection fixed-bottom align-text-top">
+		<hr class="my-0 darkModeHR">
+        	<a href="/users/logout" id="logoutBtn" class="btn btn-link w-100 h-100 p-3 headerfont header_main text-dark">Logout</a>
+		</div>
+	</div>
+
+
+
+	<!--Right Sidebar-->
+    <div class="container-fuid sidebar-right bg-light header_main right pr-3 pl-3 pt-3 pb-1 card border-0">
+        <div class="headerfaont card-header bg-light m-0 p-0 border-bottom-0"> 
+            <span class="">Actions</span> 
+            <a href="https://www.google.com/calendar" target="_blank" class="fas fa-calendar-alt text-muted fileControlBtn float-right align-middle"></a> 
+            <hr class="bg-primary">
+        </div>
+        <div class="card-body m-0 p-0 ">
+			<div><center><a href="/uploadFile/dashboard"><button class="btn btn-link w-75">Home</button></a></center></div>
+			<hr>
+			<div><center><a href="/users/profile"><button class="btn btn-link w-75">Account Overview</button></a></center></div>
+			<hr>
+			<div><center><a href="/users/editprofilePage"><button class="btn btn-link w-75">Update Profile</button></a></center></div>
+			<hr>
+			<div><center><a href="/users/createNewAccount"><button class="btn btn-link w-75">Create New Account</button></a></center></div>
+			<hr>
+			<div><center><a data-toggle="modal" data-target="#exampleModalResetAccount"><button class="btn btn-link w-75">Reset Account</button></a></center></div>
+			<hr>
+			<div><center><a href="/users/deleteAccount"><button class="btn btn-link w-75">Delete Profile</button></a></center></div>
+			<hr>
+		</div>
+        <hr>
+        <div id="todoLIstTime" class="card-footer bg-light m-0 p-0 border-top-0 parafont text-right secondary-size">
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+            <script>
+                document.getElementById("todoLIstTime").innerHTML = moment().format('MMMM Do, YYYY');
+            </script>
+        </div>
+    </div>
+	<!--End of Right Sidebar-->
+
+	<!-- Account Reset Modal -->
+	<div class="modal fade" id="exampleModalResetAccount" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content p-4 blur-bg">
+				<div class="modal-header border-0">
+					<span class="modal-title headerfont header_main text-dark" id="exampleModalPreviewLabel">Confirmation
+						<br>
+					</span>
+					<button type="button" class="close p-0 text-dark accentColor" data-dismiss="modal" aria-label="Close">
+					<span class="text-dark" aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body border-0">
+					<p class="text-muted">Are you shure you want to reset your Account? This action cannot be undone and you will be unable to recover your data.</p>
+					<form method="POST" action="/users/resetAccount" class="d-inline" id="resetAccount">
+						<input type="hidden" value="" name="resetAccountId">
+					</form>
+				</div>
+				<div class="modal-footer border-0">
+					<button type="reset" class="btn text-secondary darkModeModalCancelButton" data-dismiss="modal">Cancel</button>
+					<button class="btn btn-danger" onclick="document.getElementById('resetAccount').submit()">Yes, Reset</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- End of Account Reset modal -->
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalPreview" tabindex="-1" role="dialog" aria-labelledby="exampleModalPreviewLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content p-4 blur-bg">
+      <div class="modal-header border-0">
+        <span class="modal-title headerfont header_main" id="exampleModalPreviewLabel">Upload Files
+        	<br>
+	    	<span class="parafont header_secondary">Having problems? Get help.</span>
+		</span>
+        <button type="button" class="close p-0 text-dark accentColor" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body border-0">
+      	<form action="/uploadFile/uploadf" method="POST" enctype="multipart/form-data">
+      		<div class="custom-file mb-3">
+				<br>
+		    	<input type="file" class="custom-file-input m-auto h-100" id="customFile" name="filename" multiple>
+		    	<label class="custom-file-label border-0 m-auto h-100" for="customFile">
+		    		<img class="align-middle" src="/assets/baseline_cloud_upload_black_18dp.png"> Add file..
+		    	</label>
+		    	<br>	
+
+
+				<!--First selection opions-->
+				<div  id="options-section">
+		    	<ul class="nav nav-tabs">
+				  <li class="nav-item">
+				    <a id="options" class="nav-link active" onclick="options()">Options</a>
+				  </li>
+				  <li class="nav-item">
+				    <a id="description" class="nav-link" onclick="description()">Description</a>
+				  </li>
+				  <li class="nav-item">
+				    <a id="advanced" class="nav-link" onclick="advanced()">Advanced</a>
+				  </li>
+				</ul>
+				<div class="bg-white m-0 border border-top-0">
+				    <div class="card-group">
+					    <div class="card border-0">
+					    	<div class="card-body">
+					    	    <p class="card-text">
+					    	    <label class="">Category</label>
+					            <select class="form-control" id="sel1" name="category">
+					                <option value="work">Work</option>
+					                <option value="personal">Personal</option>
+					            	<option value="other">Other</option>
+					            </select>
+					        	</p>
+					    	</div>
+					    </div>
+					  	<div class="card border-0">
+					    	<div class="card-body">
+					        	<p class="card-text">
+					        	<label class="headerfont">Notify by email</label>
+					        	<select class="form-control input-lg" id="sel2" name="notify">
+					        	    <option value="opt1">Nobody</option>
+					        	    <option value="opt2">Only me</option>
+					        	    <!-- <option value="opt4">Everybody on the project</option> -->
+					        	    <option value="opt3" disabled>Custom</option>
+					        	</select>
+					        	</p>
+					    	</div>
+						</div>
+						<div class="card border-0">
+					  		<div class="card-body">
+					        	<p class="card-text">
+					       		<label class="headerfont">Privacy</label>
+						       	<select class="form-control" id="sel3" name="privacy">
+						       	    <option value="opt1">Only me</option>
+						       	    <option value="opt2">Everybody on the project</option>
+						       	    <option value="opt3" disabled>Custom</option>
+						        	</select>
+						        </p>
+					    	</div>
+					    </div>
+					</div>
+				</div>
+			</div>
+					<!--End of First selection opions-->
+					<!--Second selection Description-->
+					<div id="description-section">
+		    	<ul class="nav nav-tabs">
+				  <li class="nav-item">
+				    <a id="options" class="nav-link" onclick="options()">Options</a>
+				  </li>
+				  <li class="nav-item">
+				    <a id="description" class="nav-link active" onclick="description()">Description</a>
+				  </li>
+				  <li class="nav-item">
+				    <a id="advanced" class="nav-link" onclick="advanced()">Advanced</a>
+				  </li>
+				</ul>
+				<div class="bg-white m-0 border border-top-0">
+					<div class="p-4">
+						<label class="header_main headerfont">Description</label>
+						<textarea id="description" class="form-control" rows="5" placeholder="Add description of uploaded file.." name="desc"></textarea>
+					</div>	
+				</div>
+			</div>
+					<!--end of Second selection opions-->
+					<!--Third selection Advanced-->
+					<div id="advanced-section">
+		    	<ul class="nav nav-tabs">
+				  <li class="nav-item">
+				    <a id="options" class="nav-link" onclick="options()">Options</a>
+				  </li>
+				  <li class="nav-item">
+				    <a id="description" class="nav-link" onclick="description()">Description</a>
+				  </li>
+				  <li class="nav-item">
+				    <a id="advanced" class="nav-link active" onclick="advanced()">Advanced</a>
+				  </li>
+				</ul>
+				<div class="bg-white m-0 border border-top-0">
+		  			<div id="" class="card  border-0">
+		                <ul class="list-group list-group-flush headerfont">
+		                    
+		                    <li class="list-group-item">
+			                    <div id="options-section" class="card-group">
+								    <div class="card border-0">
+								    	<div class="card-body">
+								    	    <p class="card-text">				         
+								    	    Archive
+			                                <label class="switch ">
+									          <input type="checkbox" class="primary" value="1" name="archive">
+									          <span class="slider round"></span>
+									        </label>
+								        	</p>
+								    	</div>
+								  	</div>
+								  	<div class="card border-0">
+								    	<div class="card-body">
+								        	<p class="card-text">
+								        	Conseal
+			                                <label class="switch ">
+									        	<input type="checkbox" class="primary" value="1" name="conseal">
+									          	<span class="slider round"></span>
+									        </label>
+								        	</p>
+								    	</div>
+									</div>              
+								    <div class="card border-0">
+								    	<div class="card-body">
+								    	    <p class="card-text">
+								    	    Hidden
+			                                <label class="switch ">
+									          	<input type="checkbox" class="primary" value="1" name="hidden">
+									          	<span class="slider round"></span>
+									        </label>
+								        	</p>
+								    	</div>
+								  	</div>
+								</div>  
+		                    </li>
+		                </ul> 
+		            </div>
+		        </div>
+			</div>
+			<!--end of Third selection Advanced-->
+			<input type="hidden" value="0" name="favourite">
+			<br>
+			<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+			<button type="submit" class="btn btn-primary">Upload</button>
+		</div>
+	</form>
+	<script type="application/javascript">
+    	$('input[type="file"]').change(function(e){
+        var fileName = e.target.files[0].name;
+        $('.custom-file-label').html(fileName);
+      });
+	</script>
+</div>
+<div class="modal-footer border-0">      
+</div>
+</div>
+</div>
+</div>
+		<!-- Modal End-->
+
+<div class="container-fuid main-body">
+	<div class="container-fuid header_main sticky-top ml-3 py-2">
+		<form action="/uploadFile/dashboard" method="GET">
+			<div class="input-group">
+	        	<button class="input-group-prepend input-group-text border-0 bg-light"><i class="fas fa-search "></i></button>
+                <input class="form-control parafont bg-light border-0 searchbar" type="text" placeholder="Search for something" name="orignalFileName" value="<%= searchOptions.orignalFileName %>">
+            	<span class="input-group-append input-group-text p-0 border-0 bg-light headerfont">
+					<span class="ml-2 header_main"><%= firstname + '  ' + lastname %></span>
+					<a href="/users/profile/edit"><img class="rounded-circle ml-2 mr-2 profile_pic" src="<%= profilePicPath %>" alt="pic"></a>
+					<div class="dropdown"><button class="dropdown-toggles fa fa-ellipsis-v header_main fileControlBtn form-control pl-1 py-0" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
+						<div class="dropdown-menu dropdown-menu-right parafont nav-menu w-auto blur-bg">
+							<a class="dropdown-item pt-2 mx-3 w-auto form-control text-dark darkModeDropdownItem" href="/users/profile">Profile</a>
+							<div class="dropdown-divider"></div>
+							<a class="dropdown-item pt-2 mx-3 w-auto form-control text-dark darkModeDropdownItem" href="/users/profile/edit">Edit Profile</a>
+							<a class="dropdown-item pt-2 mx-3 w-auto disabled href="#">Edit Work Availability</a>
+							<div class="dropdown-divider"></div>
+							<a class="dropdown-item pt-2 mx-3 w-auto form-control text-dark darkModeDropdownItem" href="/users/uploads">My Uploads</a>
+							<div class="dropdown-divider"></div>
+							<a class="dropdown-item pt-2 mx-3 w-auto form-control text-dark darkModeDropdownItem" href="/users/settings">Account Settings</a>
+							<a class="dropdown-item pt-2 mx-3 w-auto form-control text-dark darkModeDropdownItem" href="/users/help">Get Help</a>
+							<div class="dropdown-divider"></div>
+							<a class="dropdown-item pt-2 mx-3 w-auto form-control text-dark darkModeDropdownItem" onclick="document.getElementById('logoutBtn').click()">Sign Out</a>
+						</div>
+					</div>				
+				</span>
+            </div>
+		</form>
+	</div>
+
+	<!--Hero header of page-->
+	<div class="container w-75 mx-0 sticky-top hero-header">
+		<div class="px-3 py-3 bg-light">
+			<b class="headerfont header_main">Delete Account</b><!-- 
+			<br>
+			<span class="parafont header_main secondary-size">We are sad to see you go.</span> -->
+		</div>
+	</div>
+	<!--End of hero header-->
+	<br>
+
+	<div class="container w-75 m-0">
+		<div class="align-middle">
+            <div class="card border-0">
+                <div class="card-body">
+                    <h5 class="card-title headerfont">Hi, <span class="text-dark font-weight-bolder"><%= firstname + '  ' + lastname %></span></h5>
+                    <h6 class="form-text mb-2 headerfont text-muted"><p>We're sorry to hear you'd like to delete your account.</p></h6>
+                    <br>
+                    <h5 class="card-title headerfont">Keeping Your Data Safe</span></h5>
+                    <h6 class="form-text mb-2 headerfont text-muted"><p>Nothing is more important to us than the safety and security of the Cloud Castle community. People put their trust in us by sharing their data on Cloud Castle. So we will never make any compromises when it comes to safeguarding your data.</p></h6>
+                    <br>
+                    <hr>
+                    <br>
+                    <%- include ('./partials/messages') %>
+                    <h5 class="card-title headerfont">Why are you deleting your account?</span></h5>
+                    <h6 class="form-text mb-2 headerfont text-muted"><p>
+                        <form action="/users/deleteAccountForm" id="deleteAccountForm" method="POST">
+                        <div class="input-group mb-3">
+                            <select class="custom-select" id="inputGroupSelect02" onchange="showRemainingDeleteForm()" name="deleteReason">
+                              <option selected>---</option>
+                              <option value="Created a second account">Created a second account.</option>
+                              <option value="Privacy Concerns">Privacy Concerns</option>
+                              <option value="Trouble getting started">Trouble getting started.</option>
+                              <option value="Concerned about my data">Concerned about my data.</option>
+                              <option value="Application not much use to me">Application not much use to me.</option>
+                              <option value="Other">Something else</option>
+                            </select>
+                          </div>
+                    </p></h6>
+                    <br>
+                    <div id="hiddenDeleteAccountForm"> 
+                    <h5 class="card-title headerfont">To continue, please re-enter your password</span></h5>
+                    <h6 class="form-text mb-2 headerfont text-muted"><p>
+                        <div class="form-group">
+                          <input class="form-control" id="password" type="password" tabindex="2" value="m" name="password" placeholder="Enter password.." aria-describedby="passwordHelpBlock">
+                          <small id="passwordHelpBlock" class="form-text text-muted form-group card-body pt-0">
+                            Forgot Password? <a href="/users/resetPassword" class="text-primary">Reset</a>
+                          </small>
+						</div>
+						<input type="hidden" value="<%=userID%>" name="deleteUserID">
+                    </form></p>
+                <br>
+                When you press the button below, your photos, comments, likes, friendships and all other data will be removed permanently and will not be recoverable. If you decide to create another Instagram account in the future, you cannot sign up with the same username again.
+                </h6>
+                <br>
+                <hr>
+                <button class="btn btn-danger" onclick="document.getElementById('deleteAccountForm').submit()">Permanently delete my account</button>
+            </div>
+
+                    <!-- 
+                    <form id="deleteAccountOTPForm" class="mb-3 parafont" action="/users/changePasswordOTPForm" method="POST">
+						<span class="w-75"><%- include ('./partials/messages')%></span>
+						<input id="otpNumber" type="hidden" value="" name="otpNumber">
+                        <input class="form-control w-75" type="text" placeholder="enter OTP" value="" name="deleteAccOTP">
+                        <small class="form-text text-muted form-group card-body pt-0 parafont">Note: If you did not recieve any otp please check your spam folder before requesting for another Otp.</small>
+					</form>
+					<script>
+						function getRndInteger(min, max) {
+						  return Math.floor(Math.random() * (max - min + 1) ) + min;
+						}
+					</script>
+                    <button class="btn btn-primary font-weight-bold" onclick="document.getElementById('otpNumber').value = getRndInteger(1000,9999); document.getElementById('changePasswordOTPForm').submit()">Get Otp</button>
+                    <div class="card-footer text-muted border-0 mt-5">
+                        <i class="fas fa-exclamation-circle"></i>&nbsp;If you dont recieve any email from us within a few minutes, check your spam folder as sometimes they end up in there. The email will be from <span class="font-weight-bolder"">support@cloudcastle.com</span> 
+                    </div> -->
+                </div>
+            </div>
+		</div>
+	</div>
+</div>
+
+</div>
+	<script>
+		$(function () {
+  			$('[data-toggle="popover"]').popover()
+		})
+	</script>
+	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</body>
+</html>

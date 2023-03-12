@@ -1,0 +1,902 @@
+html {
+	scroll-behavior: smooth;
+}
+
+/* DARK-MODE STYLES */
+/* .darkmode--activated .darkmode-background {
+	background-color: #000 !important;
+}  */
+
+.darkmode--activated .darkmodeGetHelpText {
+	color: #ccc !important;
+}
+
+.darkmode--activated .header_main {
+	color: #ccc !important;
+}
+
+.darkmode--activated .header_secondary {
+	color: rgba(212, 211, 216, 0.7) !important;
+}
+
+.darkmode--activated #logoutBtn:hover {
+	text-decoration: none !important;
+	color: #F45D22 !important;
+}
+
+.darkmode--activated .darkModeModalSectionBg {
+	background-color: #121212 !important;
+}
+
+.darkmode--activated .darkModeCustomInput {
+	background-color: #000 !important;
+	color: rgba(255, 255, 255, 0.8) !important;
+	border: none !important;
+	outline: #3396ff !important;
+}
+
+.darkmode--activated .darkModeCustomInputEditPage {
+	background-color: #121212 !important;
+	border: none !important;
+}
+
+.darkmode--activated .darkModeEditPageLabel {
+	color: #ccc !important;
+}
+
+.darkmode--activated .text-white {
+	isolation: isolate !important;
+}
+
+.darkmode--activated .darkModeEmailAppend {
+	background-color: #1a1a1a !important;
+	border: none !important;
+	color: #737373 !important;
+}
+
+.darkmode--activated .text-dark, .darkmode--activated #todoLIstTime {
+	color: #ccc !important;
+}
+
+.darkmode--activated .blur-bg {
+	background:rgba(10, 10, 10, 1) !important;
+    -webkit-backdrop-filter: saturate(140%) blur(17px) !important;
+	backdrop-filter: saturate(180%) blur(17px) !important;	
+	color: #ccc !important;
+}
+
+.darkmode--activated #darkModeModalCancelButton {
+	background: transparent !important;
+	color: #ccc !important;
+	border: none;
+}
+
+.darkmode--activated .darkModeModalCancelButton {
+	color: #ccc !important;
+}
+
+.darkmode--activated .darkModeCustomInputButton {
+	background-color: #121212;
+}
+
+.darkmode--activated .darkModeDetailsTable {
+	border: #000 !important;
+}
+
+.darkmode--activated .darkmodeModalText, .darkmode--activated .darkModeTableBorder {
+	color: #a6a6a6 !important;
+	border-width: 2px;
+	border-color: #121212 !important;
+}
+
+.darkmode--activated .active {
+	background-color: #121212 !important;
+	color: #fff !important;
+	border: #000 !important;
+}
+
+.darkmode--activated .text-primary, .darkmode--activated .btn-link {
+	color: #66b0ff !important;
+}
+
+.darkmode--activated .bg-primary, .darkmode--activated .btn-primary, .darkmode--activated .darkModeHRLogo {
+	background-color: #006fe6 !important;
+	mix-blend-mode: difference !important;
+}
+
+.darkmode--activated hr {
+	background: #202020 !important;
+	border-color: #202020 !important;
+}
+
+.darkmode--activated .dropdown-divider {
+	border-color: #121212 !important;
+}
+
+.darkmode--activated .darkModeModalBorder {
+	border-color: #000 !important;
+	background-color: #121212 !important;
+}
+
+.darkmode--activated .darkModeDropdownItem:hover {
+	background:rgba(100, 100, 100, 0.1) !important;
+    -webkit-backdrop-filter: saturate(140%) blur(10px) !important;
+	backdrop-filter: saturate(180%) blur(10px) !important;	
+	color: #ffffff !important;
+}
+
+.darkmode--activated .sidebarListItem:hover {
+	color: #ffffff !important;
+}
+
+.darkmode--activated .sidebarListItemSecondary:hover {
+	color: #ccc !important;
+}
+
+.darkmode--activated .darkModeHR {
+	background-color: #333333;
+}
+
+.darkmode--activated .dashboardHeroBtn{
+	background: #121212 /* #000 */ !important;
+	color: #ccc !important;
+	box-shadow: none  /* 5px 5px 10px #333333, -5px -5px 10px #333333 */ !important;
+}
+
+.darkmode--activated .card {
+	background-color: #000000;
+}
+
+.darkmode--activated .bg-light {
+	background-color: /* #1F2022 */ #121212 !important;
+}
+
+.darkmode--activated .bg-light:hover {
+	background-color: /* #1F2022 */ #121212 !important;
+}
+
+.darkmode--activated .fa-ellipsis-v {
+	color: #ccc;
+	background-color: #000;
+}
+
+.darkmode--activated .favourite {
+	color: #dfd175 !important;
+	background-color: #000000;
+	isolation: isolate;
+}
+
+.darkmode--activated .profilePic {
+	box-shadow: none !important;
+}
+
+.darkmode--activated .darkModeDefaultOptionText {
+	color: #121212;
+}
+/* END OF DARK-MODE STYLES */
+
+/*body{
+	background-color: blueviolet;
+}*/
+
+::-webkit-scrollbar {
+	width: 0;
+	background-color: #F8F9FA;
+}
+
+::-webkit-scrollbar-thumb {
+	background: #007bff;
+	border-radius: 50px;
+}
+
+
+.headerfont{
+	font-family: 'Open Sans', sans-serif;
+}
+
+.parafont, .filepond--drop-label{
+	font-family: 'Lato', sans-serif;
+}
+
+.blur-bg{
+background: rgba(240, 240, 240, 1);
+-webkit-backdrop-filter: saturate(140%) blur(16px) !important;
+backdrop-filter: saturate(180%) blur(16px) !important;
+}
+
+.sidenav{
+	width: 19%;
+	height: 100%;
+	position: fixed;
+}
+
+.sidebar-right{
+	position: fixed;
+	right: 1%;
+	width: 20%;
+	top: 7%;
+	bottom: 1%;
+	overflow: auto;
+}
+
+.logo{
+	height: 30px ;
+}
+
+.dashboardHeroBtn {
+	border-radius: 26px;
+	background: #ffffff;
+	box-shadow:  5px 5px 10px #f7f7f7, -5px -5px 10px #f7f7f7;
+}
+
+.modal-backdrop {
+   background-color: transparent;
+}
+
+.modal-content{
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+    border: none;
+}
+
+.header_main {
+	color: #69686B;
+}
+
+.header_secondary, .filepond--drop-label{
+	font-size: 80%;
+	color: #d4d3d8;
+}
+
+.secondary-size{
+	font-size: 90% !important;
+}
+
+.custom-file-label{
+	background-color: #fff;
+}
+
+.main_div{
+	position: relative;
+	left: 260px;
+}
+
+.vertical-align{
+	min-height: 100vh;
+	display: flex;
+	align-items: center;
+}
+
+.logoutsection{
+	width: 16% !important;
+	left: 1% !important;
+}
+
+.main-body{
+	margin-left: 19%;
+	padding: 0 15px 0 0;
+	display: block;
+	max-height: 100vh !important;
+}
+
+/*Start of modal section*/
+
+#description-section, #advanced-section{
+	display: none;
+}
+
+
+
+/* The switch - the box around the slider */
+.switch {
+  position: relative;
+  width: 30%;
+  height: 28px;
+  float:right;
+}
+
+/* Hide default HTML checkbox */
+.switch input {display:none;}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 24px;
+  width: 44%;
+  left: 3px;
+  right: 2px;
+  bottom: 2px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input.primary:checked + .slider {
+  background-color: #2196F3;
+}
+
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(100%);
+  -ms-transform: translateX(100%);
+  transform: translateX(100%);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+/*End of modal section*/
+.searchbar::placeholder{
+	font-size: 110%;
+}
+
+.profile_pic{
+	height: 26px;
+	width: 26px;
+	object-fit: cover;
+}
+
+.modalProfilePic {
+	height: 40px;
+	width: 40px;
+	object-fit: cover;	
+}
+
+
+.profilePicContainer {
+	position: relative !important;
+	height: 200px !important;
+	width: 200px !important;
+	margin: auto;
+}
+
+.profilePic {
+	height: 200px;
+	width: 200px;
+	object-fit: cover;
+	box-shadow:  20px 20px 60px #d9d9d9, -20px -20px 60px #ffffff;		 
+}
+
+.overlay {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	height: 100%;
+	width: 100%;
+	opacity: 1;
+	background: rgb(255,255,255);
+	background: -moz-linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(128,128,128,0) 50%, rgba(0,0,0,0.7066176812521884) 100%);
+	background: -webkit-linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(128,128,128,0) 50%, rgba(0,0,0,0.7066176812521884) 100%);
+	background: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(128,128,128,0) 50%, rgba(0,0,0,0.3066176812521884) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffffff",endColorstr="#000000",GradientType=1);
+	transition: all 3s ease-in;
+}
+  
+.profilePicContainer:hover .overlay{
+	background: rgb(255,255,255);
+	background: -moz-linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0) 25%, rgba(0,0,0,0.7066176812521884) 100%);
+	background: -webkit-linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0) 25%, rgba(0,0,0,0.7066176812521884) 100%);
+	background: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0) 25%, rgba(0,0,0,0.7066176812521884) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffffff",endColorstr="#000000",GradientType=1);
+}
+
+.profilePicContainer:hover .profileIcon{
+	font-size: 160%;
+	color: #f1f1f1;
+}
+
+.profileIcon {
+	color: white;
+	font-size: 150%;
+	position: absolute;
+	top: 90%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+	text-align: center;
+	transition: all 0.3s ease-in;
+}
+
+.nav-menu {
+	z-index: 99 !important;
+	border: none;
+	background: #f1f1f1;
+}
+
+.hero-header{
+	top: 7%;
+	z-index: 99 !important;	
+}
+
+.file-list{
+	top: 7%;
+}
+
+.small-icons{
+	float: right;
+	margin: auto;
+	margin-right: 2%;
+	color: #292929;
+}
+
+.favourite{
+	color: #FFDF01;
+}
+
+.fileControlBtn, .fileControlBtn:focus{
+	background: rgba(255, 255, 255, 0.1);
+	border: none;
+}
+
+.form-control, .form-control:focus{
+	outline: 0 !important;
+	-webkit-appearance:none;
+    box-shadow: none !important;
+}
+
+.neu-bg {
+	border-radius: 0px;
+	background: #ffffff;
+	box-shadow:  1px 6px 12px #f0f0f0, -1px 0px 12px #f0f0f0; /* 10px 10px 20px #e3e3e3, -10px -10px 20px #ffffff; */
+	transition: box-shadow 0.5s;
+}
+
+.neu-bg:hover {
+	 box-shadow: 1px 6px 12px #007bff, -1px 0px 12px #FFDF01;
+}
+
+.no-decoration:hover {
+	text-decoration: none;
+}
+
+.darkModeProfileDetailsText {
+	font-size: 1.1rem;
+}
+
+/* .filepond--root {
+	width:150px;
+	margin: 10px auto 0;
+}
+
+.filepond--drop-label {
+	font-size: 70%;
+	color: #d4d3d8
+}
+
+.filepond{
+	background: #ffffff;
+	box-shadow:  14px 14px 28px #e3e3e3, -14px -14px 28px #ffffff;
+}
+
+.filepond--panel-root {
+	background-color: #f7f7f7;
+} */
+
+/* EDIT PROFILE PAGE */
+
+#profilePicEditForm {
+	display: none !important;
+}
+
+/* CLOSE OF EDIT PROFILE PAGE */
+
+/* OPENING OF ACCOUNT SETTINGS PAGE */
+
+.colorButton {
+	min-height: 50px;
+	width: 50px;
+	border: none;
+	padding: 10px 20px;
+	display: inline-block;
+	margin: 15px 15px;
+	cursor: pointer;
+	border-radius: 50px;
+}
+
+.bg-pink {
+	background-color: #E0245E !important;
+}
+
+.bg-purple {
+	background-color: #794BC4 !important;
+}
+
+.bg-fire {
+	background-color: #F45D22 !important;
+}
+
+.bg-green {
+	background-color: #17BF63 !important;
+}
+
+/* CLOSE OF ACCOUNT SETTINGS PAGE */
+
+.bg-colourful {
+	background: rgb(238,174,202);
+	background: -moz-radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+	background: -webkit-radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+	background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#eeaeca",endColorstr="#94bbe9",GradientType=1);
+}
+
+.bg-dark {
+	background-color: #000;
+}
+
+.radio {
+	margin: 16px 0;
+	display: inline-block;
+	cursor: pointer;
+	font-family: Arial, Helvetica, sans-serif;
+  }
+  .radio input {
+	display: none;
+  }
+  .radio input + span {
+	line-height: 22px;
+	height: 22px;
+	padding-left: 22px;
+	display: block;
+	position: relative;
+  }
+  .radio input + span:not(:empty) {
+	padding-left: 30px;
+  }
+  .radio input + span:before, .radio input + span:after {
+	content: '';
+	width: 22px;
+	height: 22px;
+	display: block;
+	border-radius: 50%;
+	left: 0;
+	top: 0;
+	position: absolute;
+  }
+  .radio input + span:before {
+	background: #D1D7E3;
+	-webkit-transition: background 0.2s ease, -webkit-transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 2);
+	transition: background 0.2s ease, -webkit-transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 2);
+	transition: background 0.2s ease, transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 2);
+	transition: background 0.2s ease, transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 2), -webkit-transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 2);
+  }
+  .radio input + span:after {
+	background: #fff;
+	-webkit-transform: scale(0.78);
+			transform: scale(0.78);
+	-webkit-transition: -webkit-transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.4);
+	transition: -webkit-transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.4);
+	transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.4);
+	transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.4), -webkit-transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.4);
+  }
+  .radio input:checked + span:before {
+	-webkit-transform: scale(1.04);
+			transform: scale(1.04);
+	background: #5D9BFB;
+  }
+  .radio input:checked + span:after {
+	-webkit-transform: scale(0.4);
+			transform: scale(0.4);
+	-webkit-transition: -webkit-transform .3s ease;
+	transition: -webkit-transform .3s ease;
+	transition: transform .3s ease;
+	transition: transform .3s ease, -webkit-transform .3s ease;
+  }
+  .radio:hover input + span:before {
+	-webkit-transform: scale(0.92);
+			transform: scale(0.92);
+  }
+  .radio:hover input + span:after {
+	-webkit-transform: scale(0.74);
+			transform: scale(0.74);
+  }
+  .radio:hover input:checked + span:after {
+	-webkit-transform: scale(0.4);
+			transform: scale(0.4);
+  }
+  
+ /*  body {
+	min-height: 100vh;
+	font-family: Roboto, Arial;
+	color: #ADAFB6;
+	display: -webkit-box;
+	display: flex;
+	-webkit-box-pack: center;
+			justify-content: center;
+	-webkit-box-align: center;
+			align-items: center;
+  } */
+
+
+
+.tooltip-inner {
+	background-color: #f1f1f1;
+	color: #343A40;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+.bs-tooltip-auto[x-placement^=top] .arrow::before, .bs-tooltip-top .arrow::before {
+    border-top-color: #f1f1f1 !important;
+}
+
+
+/* .colormode--activated .bg-light, .colormode--activated {
+	background: #7F7FD5;  /* fallback for old browsers *
+	background: -webkit-linear-gradient(to right, #91EAE4, #86A8E7, #7F7FD5);  /* Chrome 10-25, Safari 5.1-6 *
+	background: linear-gradient(to right, #91EAE4, #86A8E7, #7F7FD5); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ *
+}
+
+.colormode--activated .btn-primary{
+	background: #7F7FD5;  /* fallback for old browsers *
+	background: -webkit-linear-gradient(to right, #91EAE4, #86A8E7, #7F7FD5);  /* Chrome 10-25, Safari 5.1-6 *
+	background: linear-gradient(to right, #91EAE4, #86A8E7, #7F7FD5) !important;
+	border: none !important;
+}
+
+.colormode--activated .text-primary, .colormode--activated .text-dark, .colormode--activated .header_main, .colormode--activated .btn-link, .colormode--activated .bg-light {
+	color: #fff !important; 
+}
+
+.colormode--activated .bg-white {
+	color: #343a40 !important;
+}
+ */
+
+
+
+/* Custom Accent Colours */
+/* The container */
+.primaryAccentContainer, .warningAccentContainer, .pinkAccentContainer, .purpleAccentContainer, .fireAccentContainer, .greenAccentContainer {
+	display: inline;
+	background: transparent;
+	position: relative;
+	padding-left: 35px;
+	cursor: pointer;
+	font-size: 22px;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+/* Hide the browser's default radio button */
+.primaryAccentContainer input, .warningAccentContainer input, .pinkAccentContainer input, .purpleAccentContainer input, .fireAccentContainer input, .greenAccentContainer input {
+	position: absolute;
+	opacity: 0;
+	cursor: pointer;
+}
+
+/* Create a custom radio button */
+.primaryAccentCheckmark {
+	padding: 10px 10px;
+	margin: 15px 10px;
+	height: 50px;
+	width: 50px;
+	border: none;
+	cursor: pointer;
+	display: inline-block;
+	border-radius: 50px;
+	background-color: #1da1f2;
+	transition: min-height width margin ease-in 1s;
+	position: relative;
+}
+
+.warningAccentCheckmark {
+	padding: 10px 10px;
+	margin: 15px 10px;
+	min-height: 50px;
+	width: 50px;
+	border: none;
+	cursor: pointer;
+	display: inline-block;
+	border-radius: 50px;
+	background-color: #ffc107;
+	transition: min-height width margin ease-in 1s;
+	position: relative;
+}
+
+.pinkAccentCheckmark {
+	padding: 10px 10px;
+	margin: 15px 10px;
+	min-height: 50px;
+	width: 50px;
+	border: none;
+	cursor: pointer;
+	display: inline-block;
+	border-radius: 50px;
+	background-color: #E0245E;
+	transition: min-height width margin ease-in 0.5s;
+	position: relative;
+}
+
+.purpleAccentCheckmark {
+	padding: 10px 10px;
+	margin: 15px 10px;
+	min-height: 50px;
+	width: 50px;
+	border: none;
+	cursor: pointer;
+	display: inline-block;
+	border-radius: 50px;
+	background-color: #794BC4;
+	transition: min-height width margin ease-in 1s;
+	position: relative;
+}
+
+.fireAccentCheckmark {
+	padding: 10px 10px;
+	margin: 15px 10px;
+	min-height: 50px;
+	width: 50px;
+	border: none;
+	cursor: pointer;
+	display: inline-block;
+	border-radius: 50px;
+	background-color: #F45D22;
+	transition: min-height width ease-in 1s;
+	position: relative;
+}
+
+.greenAccentCheckmark {
+	padding: 10px 10px;
+	margin: 15px 10px;
+	min-height: 50px;
+	width: 50px;
+	border: none;
+	cursor: pointer;
+	display: inline-block;
+	border-radius: 50px;
+	background-color: #17BF63;
+	transition: min-height width margin ease-in 1s;
+	position: relative;
+}
+
+/* On mouse-over, add a grey background color */
+.primaryAccentContainer:hover input ~ .primaryAccentCheckmark, .warningAccentContainer:hover input ~ .warningAccentCheckmark, .pinkAccentContainer:hover input ~ .pinkAccentCheckmark, .purpleAccentContainer:hover input ~ .purpleAccentCheckmark, .fireAccentContainer:hover input ~ .fireAccentCheckmark, .greenAccentContainer:hover input ~ .greenAccentCheckmark {
+	min-height: 55px;
+	width: 55px;
+	margin: 12.5px 7.5px;
+}
+
+/* When the radio button is checked, add a blue background */
+.primaryAccentContainer input:checked ~ .primaryAccentCheckmark, .warningAccentContainer input:checked ~ .warningAccentCheckmark, .pinkAccentContainer input:checked ~ .pinkAccentCheckmark, .purpleAccentContainer input:checked ~ .purpleAccentCheckmark, .fireAccentContainer input:checked ~ .fireAccentCheckmark, .greenAccentContainer input:checked ~ .greenAccentCheckmark {
+	opacity: 0.9;
+	color: #fff;
+	background-image: url("../assets/check-mark.png");
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+
+/* Change Accent Colors */
+/* warning accent */
+.warningAccent .btn-link {
+	color: #ffc107 !important;
+}
+
+.warningAccent .btn-primary {
+	background: #ffc107 !important;
+	border: none;
+}
+
+.warningAccent .darkModeHRLogo, .warningAccent .bg-primary {
+	background: #ffc107 !important;
+}
+
+.warningAccent .accentColor {
+	color: #ffc107 !important;
+	text-shadow: none !important;
+}
+
+/* pink accent */
+.pinkAccent .btn-link {
+	color: #E0245E !important;
+}
+
+.pinkAccent .btn-primary {
+	background: #E0245E !important;
+	border: none;
+}
+
+.pinkAccent .darkModeHRLogo, .pinkAccent .bg-primary {
+	background: #E0245E !important;
+}
+
+.pinkAccent .accentColor {
+	color: #E0245E !important;
+	text-shadow: none !important;
+}
+
+
+/* pink accent */
+.purpleAccent .btn-link {
+	color: #794BC4 !important;
+}
+
+.purpleAccent .btn-primary {
+	background: #794BC4 !important;
+	border: none;
+}
+
+.purpleAccent .darkModeHRLogo, .purpleAccent .bg-primary {
+	background: #794BC4 !important;
+}
+
+.purpleAccent .accentColor {
+	color: #794BC4 !important;
+	text-shadow: none !important;
+}
+
+/** fire accent **/
+.fireAccent .btn-link{
+	color: #F45D22 !important;
+}
+
+.fireAccent .btn-primary {
+	background: #F45D22 !important;
+	border: none;
+}
+
+.fireAccent .darkModeHRLogo, .fireAccent .bg-primary {
+	background: #F45D22 !important;
+}
+
+.fireAccent .accentColor {
+	color: #f45d22 !important;
+	text-shadow: none !important;
+}
+
+
+/** fire accent **/
+.greenAccent .btn-link {
+	color: #17BF63 !important;
+}
+
+.greenAccent .btn-primary {
+	background: #17BF63 !important;
+	border: none;
+}
+
+.greenAccent .darkModeHRLogo, .greenAccent .bg-primary {
+	background: #17BF63 !important;
+}
+
+.greenAccent .accentColor {
+	color: #17BF63 !important;
+	text-shadow: none !important;
+}
+
+/*End of Custom Accent Colours */
+
+.helpMessageListItem {
+	cursor: pointer;
+}
+
+#helpMessageResponseDiv {
+	display: none;
+}
+
+#hiddenDeleteAccountForm {
+	display: none;
+}

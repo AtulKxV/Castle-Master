@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Cloud Castle</title>
+</head>
+<body  onload="preselectedBackground()">
+<div class="container-fuid m-0 p-0">
+	<div class="container-fuid m-0 sidenav bg-light p-3">
+		<div class="headerfont">
+			<a class="headerfont logo_link" href="/">
+				<img class="img-fluid logo m-1" src="/assets/icons8-castle-64.png">
+			</a>
+			<span class="m-0 p-0 align-bottom text-dark"><b>Cloud Castle</b></span>
+		</div>
+		<hr class="darkModeHRLogo">
+		<br>
+		<center>
+			<a href="/admins/adminDashboard"><button type="button" class="btn align-text-top btn-link w-75 headerfont" data-toggle="modal" data-target="#exampleModalPreview">Home</button></a><hr>
+			<button id="modalActivate" type="button" class="btn align-text-top btn-link w-75 headerfont" data-toggle="modal" data-target="#exampleModalPreview">Create new User</button><hr>
+			<button id="modalActivate" type="button" class="btn align-text-top btn-link w-75 headerfont" data-toggle="modal" data-target="#exampleModalPreview">Create demo User</button><hr>
+			<button id="modalActivate" type="button" class="btn align-text-top btn-link w-75 headerfont" data-toggle="modal" data-target="#exampleModalPreview">Remove all Users</button><hr>
+			<button id="modalActivate" type="button" class="btn align-text-top btn-link w-75 headerfont" data-toggle="modal" data-target="#exampleModalPreview">Show Users Details</button><hr>
+			<button id="modalActivate" type="button" class="btn align-text-top btn-link w-75 headerfont" data-toggle="modal" data-target="#exampleModalPreview">Show Application Details</button><hr>
+			<button id="modalActivate" type="button" class="btn align-text-top btn-link w-75 headerfont" data-toggle="modal" data-target="#exampleModalPreview">Show Help Messages</button><hr>
+		</center>
+
+		<div class="logoutsection fixed-bottom align-text-top">
+		<hr class="my-0 darkModeHR">
+        	<a href="/users/logout" id="logoutBtn" class="btn btn-link w-100 h-100 p-3 headerfont header_main text-dark">Logout</a>
+		</div>
+	</div>
+
+
+
+	<!--Right Sidebar-->
+		<%- include('../views/partials/_todoList.ejs') %>
+	<!--End of Right Sidebar-->
+
+
+
+
+		<div class="logoutsection fixed-bottom align-text-top">
+		<hr class="my-0 darkModeHR">
+        	<a href="/users/logout" id="logoutBtn" class="btn btn-link w-100 h-100 p-3 headerfont header_main text-dark">Logout</a>
+		</div>
+	</div>
+
+
+
+
+
+<div class="container-fuid main-body">
+	<div class="container-fuid header_main sticky-top ml-3 py-2">
+		<form action="/uploadFile/dashboard" method="GET">
+			<div class="input-group">
+	        	<button class="input-group-prepend input-group-text border-0 bg-light"><i class="fas fa-search "></i></button>
+                <input class="form-control parafont bg-light border-0 searchbar" type="text" placeholder="Search for something" name="orignalFileName" value="<%= searchOptions.orignalFileName %>">
+            	<span class="input-group-append input-group-text p-0 border-0 bg-light headerfont">
+					<span class="ml-2 header_main"><%= firstname + '  ' + lastname %></span>
+					<a href="/users/profile/edit"><img class="rounded-circle ml-2 mr-2 profile_pic" src="<%= profilePicPath %>" alt="pic"></a>
+					<div class="dropdown"><button class="dropdown-toggles fa fa-ellipsis-v header_main fileControlBtn form-control pl-1 py-0" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
+						<div class="dropdown-menu dropdown-menu-right parafont nav-menu w-auto blur-bg">
+							<a class="dropdown-item pt-2 mx-3 w-auto form-control text-dark darkModeDropdownItem" href="/admins/adminDashboard">Profile</a>
+							<div class="dropdown-divider"></div>
+							<a class="dropdown-item pt-2 mx-3 w-auto form-control text-dark darkModeDropdownItem" href="/admins/profile/edit">Edit Profile</a>
+							<a class="dropdown-item pt-2 mx-3 w-auto disabled href="#">Edit Work Availability</a>
+							<div class="dropdown-divider"></div>
+							<a class="dropdown-item pt-2 mx-3 w-auto form-control text-dark darkModeDropdownItem" href="/admins/uploads">My Uploads</a>
+							<div class="dropdown-divider"></div>
+							<a class="dropdown-item pt-2 mx-3 w-auto form-control text-dark darkModeDropdownItem" href="/admins/adminSettings">Display Settings</a>
+							<a class="dropdown-item pt-2 mx-3 w-auto form-control text-dark darkModeDropdownItem" href="/admins/help">Get Help</a>
+							<div class="dropdown-divider"></div>
+							<a class="dropdown-item pt-2 mx-3 w-auto form-control text-dark darkModeDropdownItem" onclick="document.getElementById('logoutBtn').click()">Sign Out</a>
+						</div>
+					</div>				
+				</span>
+            </div>
+		</form>
+	</div>
+
+	<!--Hero header of page-->
+	<div class="container w-75 mx-0 sticky-top hero-header">
+		<div class="px-3 py-1 bg-light">
+			<b class="headerfont header_main">Display Settings</b>
+			<br>
+			<span class="parafont header_main secondary-size">Display settings affect all of your Cloud Castle accounts on this browser. These settings are only visible to you.</span>
+		</div>
+	</div>
+	<!--End of hero header-->
+
+	<div class="container w-75 m-0">
+		<div class="align-middle">
+            <div class="card mt-4 border-0 bg-light">
+                <div class="card-body">
+                    <h5 class="card-title headerfont header_main">Colors</h5>
+                    <div class="container-fluid">
+                        <span class="colorButton bg-primary"></span>
+                        <span class="colorButton bg-warning"></span>
+        	            <span class="colorButton bg-pink"></span>
+                        <span class="colorButton bg-purple"></span>
+                        <span class="colorButton bg-fire"></span>
+                        <span class="colorButton bg-green"></span>
+                    </div>
+                </div>
+			</div>
+            <div class="card mt-4 border-0 bg-light">
+                <div class="card-body">
+                    <h5 class="card-title headerfont header_main">Background</h5>
+                    <form action="#">
+                        <div>
+                            <label class="radio border rounded py-4 px-5 mx-3 bg-white text-dark">
+                                <input type="radio" name="r" value="1" onchange="toggleDarkmode()" checked>
+                                <span class="darkModeDefaultOptionText">Default</span>
+                            </label>
+                            <label class="radio border rounded py-4 px-5 mx-3 bg-colourful text-light">
+                                <input type="radio" name="r" value="2">
+                                <span>Colourful</span>
+                            </label>
+                            <label class="radio border rounded py-4 px-5 mx-3 bg-dark text-light">
+								<input id="darkModeToggleButton" type="radio" name="r" value="3" onchange="toggleDarkmode()">
+                                <span>Dark</span>
+							</label>
+						</div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+	<script>
+		$(function () {
+  			$('[data-toggle="popover"]').popover()
+		})
+	</script>
+	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</body>
+</html>

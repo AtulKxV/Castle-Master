@@ -1,0 +1,27 @@
+<div class="container-fuid sidebar-right bg-light header_main right pr-3 pl-3 pt-3 pb-1 card border-0">
+	<div class="headerfont card-header bg-light m-0 p-0 border-bottom-0"> 
+		<span class="darkModeText">To Do List</span> 
+		<a href="https://www.google.com/calendar" target="_blank" class="fas fa-calendar-alt text-muted fileControlBtn float-right align-middle"></a> 
+		<hr class="bg-primary">
+	</div>
+	<div class="card-body m-0 p-0 ">
+		<form class="w-100" action="/uploadFile/taskToDo" method="POST">
+			<input type="text" class="form-control border-0 form-control-sm darkModeCustomInput" placeholder="add a new goal" name="taskName">
+		</form>
+		<div class="list-group list-group-flush mt-4 parafont">
+			<% tasks.forEach( task => { %>
+				<span class="list-group-item border-0 bg-light">
+					<%- include('../partials/_deleteCompletedTask.ejs', { url: `/uploadFile/${task.id}/deleteTask` }) %>
+					<span class="pl-3"><%= task.taskName %></span>
+				</span>
+			<% }) %>
+		</div>
+	</div>
+	<hr class="darkModeHR">
+	<div id="todoLIstTime" class="card-footer bg-light m-0 p-0 border-top-0 parafont text-right secondary-size">
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+		<script>
+			document.getElementById("todoLIstTime").innerHTML = moment().format('MMMM Do, YYYY');
+		</script>
+	</div>
+</div>

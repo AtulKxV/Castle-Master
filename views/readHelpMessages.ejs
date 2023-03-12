@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<head>
+	<title>Cloud Castle</title>
+</head>
+<body onload="getCookie();">
+<div class="container-fuid m-0 p-0">
+	<div class="container-fuid m-0 sidenav bg-light p-3">
+		<div class="headerfont">
+			<a class="headerfont logo_link" href="/">
+				<img class="img-fluid logo m-1" src="/assets/icons8-castle-64.png">
+			</a>
+			<span class="m-0 p-0 align-bottom text-dark"><b>Cloud Castle</b></span>
+		</div>
+		<hr class="darkModeHRLogo">
+		<br>
+		<center>
+			<a href="/admins/adminDashboard"><button type="button" class="btn align-text-top btn-link w-75 headerfont">Home</button></a><hr>
+			<a href="/uploadFile/dashboard"><button type="button" class="btn align-text-top btn-link w-75 headerfont">Switch to User</button></a><hr>
+			<a href="/admins/adminShowUserDetails"><button type="button" class="btn align-text-top btn-link w-75 headerfont">Show Users Details</button></a><hr>
+			<a href="/admins/applicationDetails"><button type="button" class="btn align-text-top btn-link w-75 headerfont" >Show Application Details</button></a><hr>
+			<a href="/admins/HelpMessages"><button id="modalActivate" type="button" class="btn align-text-top btn-link w-75 headerfont">Show All Messages</button></a><hr>
+			<a href="/admins/unreadHelpMessages"><button id="modalActivate" type="button" class="btn align-text-top btn-link w-75 headerfont">Show Unread Messages</button></a>
+			<!-- <a href="/admins/helpMessages"><button id="modalActivate" type="button" class="btn align-text-top btn-link w-75 headerfont">Show Trashed Messages</button></a> -->
+		</center>
+
+		<div class="logoutsection fixed-bottom align-text-top">
+		<hr class="my-0 darkModeHR">
+        	<a href="/users/logout" id="logoutBtn" class="btn btn-link w-100 h-100 p-3 headerfont header_main text-dark">Logout</a>
+		</div>
+	</div>
+
+
+
+	<!--Right Sidebar-->
+		<%- include('../views/partials/_adminToDoList.ejs') %>
+	<!--End of Right Sidebar-->
+
+	
+<!-- Modal -->
+
+  </div>
+
+<div class="container-fuid main-body">
+	<div class="container-fuid header_main sticky-top ml-3 py-2">
+		<form action="/uploadFile/dashboard" method="GET">
+			<div class="input-group">
+	        	<button class="input-group-prepend input-group-text border-0 bg-light"><i class="fas fa-search "></i></button>
+                <input class="form-control parafont bg-light border-0 searchbar" type="text" placeholder="Search for something" name="orignalFileName" value="<%= searchOptions.orignalFileName %>">
+            	<span class="input-group-append input-group-text p-0 border-0 bg-light headerfont">
+					<span class="ml-2 header_main"><%= firstname + '  ' + lastname %></span>
+					<a href="/users/profile/edit"><img class="rounded-circle ml-2 mr-2 profile_pic" src="<%= profilePicPath %>" alt="pic"></a>
+					<div class="dropdown"><button class="dropdown-toggles fa fa-ellipsis-v header_main fileControlBtn form-control pl-1 py-0 bg-light" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
+						<div class="dropdown-menu dropdown-menu-right parafont nav-menu w-auto blur-bg">
+							<a class="dropdown-item pt-2 mx-3 w-auto form-control text-dark darkModeDropdownItem" href="/users/profile">Profile</a>
+							<div class="dropdown-divider"></div>
+							<a class="dropdown-item pt-2 mx-3 w-auto form-control text-dark darkModeDropdownItem" href="/users/profile/edit">Edit Profile</a>
+							<a class="dropdown-item pt-2 mx-3 w-auto disabled href="#">Edit Work Availability</a>
+							<div class="dropdown-divider"></div>
+							<a class="dropdown-item pt-2 mx-3 w-auto form-control text-dark darkModeDropdownItem" href="/users/uploads">My Uploads</a>
+							<div class="dropdown-divider"></div>
+							<a class="dropdown-item pt-2 mx-3 w-auto form-control text-dark darkModeDropdownItem" href="/users/settings">Account Settings</a>
+							<a class="dropdown-item pt-2 mx-3 w-auto form-control text-dark darkModeDropdownItem" href="/admins/helpMessages">Help Messages</a>
+							<div class="dropdown-divider"></div>
+							<a class="dropdown-item pt-2 mx-3 w-auto form-control text-dark darkModeDropdownItem" onclick="document.getElementById('logoutBtn').click()">Sign Out</a>
+						</div>
+					</div>				
+				</span>
+            </div>
+		</form>
+	</div>
+
+	<!--Hero header of page-->
+	<div class="container w-75 mx-0 sticky-top hero-header">
+		<div class="px-3 py-1 bg-light">
+			<b class="headerfont header_main">Read Help Messages</b>
+			<br>
+			<span class="parafont header_main secondary-size">All help messages that you have read are shown here.</span>
+		</div>
+	</div>
+	<!--End of hero header-->
+	<br>
+
+
+	<div class="container w-75 m-0 file-list">
+		<div class="align-middle mt-4">
+			<% var i=1%>
+            <% messages.forEach( message =>{ %>
+                <span onclick="document.getElementById('messageEmail').innerHTML='<%= message.email %>'; document.getElementById('messageSubject').innerHTML='<%= message.subject %>'; document.getElementById('messageMessage').innerHTML='<%= message.message %>'; document.getElementById('messageDate').innerHTML='<%= message.creationDate %>'; document.getElementById('statusMessageIdModal').value='<%= message._id %>'; " data-toggle="modal" data-target="#exampleModalMessageDetails">
+                    <b class="mr-1"><%= i %>.</b>&nbsp;
+                    <% if(message.readStatus == '0' ){ %>
+                        <span class="font-weight-bolder"><%= message.subject %></span>
+					<% } else { %>
+                        <%= message.subject %>
+					<% } %>
+                </span>
+                    <% if(message.bookmark == '0' ){ %></i>
+                        <button class="far fa-bookmark small-icons fileControlBtn" onclick="document.getElementById('bookmarkMessageId').value='<%= message._id %>'; document.getElementById('bookmarkMessage').value='1'; document.getElementById('bookmarkMessageForm').submit();" data-toggle="tooltip" data-placement="top" title="Add Bookmark"></button>
+					<% } else { %>
+                        <button class="fas fa-bookmark small-icons fileControlBtn" onclick="document.getElementById('bookmarkMessageId').value='<%= message._id %>'; document.getElementById('bookmarkMessage').value='0'; document.getElementById('bookmarkMessageForm').submit();" data-toggle="tooltip" data-placement="top" title="Remove Bookmark"></button>
+					<% } %>
+                    <button class="far fa-trash-alt small-icons fileControlBtn" onclick="document.getElementById('deleteMessageId').value='<%= message._id %>'; document.getElementById('deleteMessageForm').submit();" data-toggle="tooltip" data-placement="top" title="Delete Message"></button>
+                    <% if(message.readStatus == '0' ){ %>
+                        <button class="far fa-envelope small-icons fileControlBtn" onclick="document.getElementById('statusMessageId').value='<%= message._id %>'; document.getElementById('statusMessage').value='1'; document.getElementById('statusMessageForm').submit();" data-toggle="tooltip" data-placement="top" title="Mark as Read"></button>
+					<% } else { %>
+                        <button class="far fa-envelope-open small-icons fileControlBtn" onclick="document.getElementById('statusMessageId').value='<%= message._id %>'; document.getElementById('statusMessage').value='0'; document.getElementById('statusMessageForm').submit();" data-toggle="tooltip" data-placement="top" title="Mark as Unread"></button>
+					<% } %>
+					<hr class='mt-2 mb-3'>
+                    <% i++ %>
+		    <% }) %>
+		</div>
+	</div>
+</div>
+
+
+	<!-- User details modal -->
+	<div class="modal fade" id="exampleModalMessageDetails" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content p-4 blur-bg">
+                <div class="modal-header border-0">
+                    <div class="modal-title headerfont h4 ml-2" id="messageEmail">
+                        <br>
+                    </div>
+					<button type="button" class="close p-0 text-dark accentColor" data-dismiss="modal" aria-label="Close">
+                    <span class="text-dark" aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body border-0">
+                    <div>
+                        <table class="table darkModeDetailsTable">
+                            <tbody>
+                                <tr>
+                                <th class="text-dark darkModeTableBorder" scope="row">Subject</th>
+                                <td id="messageSubject" class="darkmodeModalText"></td>
+                                </tr>
+                                <tr>
+                                <th class="text-dark darkModeTableBorder" scope="row">Message</th>
+                                <td id="messageMessage" class="darkmodeModalText"></td>
+                                </tr>
+                                <tr>
+                                    <th class="text-dark darkModeTableBorder" scope="row">Date Sent</th>
+                                    <td id="messageDate" class="darkmodeModalText"></td>
+                                </tr>
+                            </tbody>
+						</table>
+						<br>
+						<a href="https://mail.google.com/mail/u/2/#inbox?compose=new" target="_blank" class="btn btn-primary float-right">Respond</a>
+                    </div>
+                </div>  
+            </div>
+		</div>
+	</div>
+	<!-- End of User details modal -->
+
+<form action="/admins/readbookmarkMessageForm?_method=PUT" id="bookmarkMessageForm" method="POST">
+    <input id="bookmarkMessageId" type="hidden" value="" name="bookmarkMessageId">
+    <input id="bookmarkMessage" type="hidden" value="" name="bookmarkMessage">
+</form>
+
+<form action="/admins/readstatusMessageForm?_method=PUT" id="statusMessageForm" method="POST">
+    <input id="statusMessageId" type="hidden" value="" name="statusMessageId">
+    <input id="statusMessage" type="hidden" value="" name="statusMessage">
+</form>
+
+<form action="/admins/readstatusMessageModalForm?_method=PUT" id="statusMessageModalForm" method="POST">
+    <input id="statusMessageIdModal" type="hidden" value="" name="statusMessageIdModal">
+</form>
+
+<form action="/admins/readdeleteMessageForm?_method=DELETE" id="deleteMessageForm" method="POST">
+    <input id="deleteMessageId" type="hidden" value="" name="deleteMessageId">
+</form>
+
+
+<!-- </div> -->
+	<script>
+	$(document).ready(function(){
+		$("#exampleModalMessageDetails").on('hide.bs.modal', function(){
+			$("#statusMessageModalForm").submit()
+		});
+	});
+
+	$(function () {
+		$('[data-toggle="tooltip"]').tooltip({ delay: { "show": 1000, "hide": 10 }})
+	})
+	
+	$(function () {
+  		$('[data-toggle="popover"]').popover()
+	})
+	</script>
+	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</body>
+</html>
