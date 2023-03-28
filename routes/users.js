@@ -86,9 +86,9 @@ router.post('/register', upload.single('profilePic'), [/* check('email').isEmail
     } */
 
     //CHECK FOR PROFILE PIC
-    if (profilePicName == null) {
-        removeProfilePic(profilePicName)
-    }
+  //  if (profilePicName == null) {
+  //     removeProfilePic(profilePicName)
+  //  }
 
     //check if email is already registered
     let emailCheckQuery = User.findOne().where('email').equals(req.body.email).countDocuments().exec()

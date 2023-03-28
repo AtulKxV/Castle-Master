@@ -16,7 +16,11 @@ const upload = multer({
 
 //DASHBOARD ROUTE
 router.get('/dashboard', ensureAuthenticated, async (req, res) => {
-    let query = uploadFile.find().where('email').equals(req.user.email).where('delete').equals('0').where('archive').equals(null).sort({uploadDate: 'desc'}).limit(20)
+    console.log("Request query",req.query)
+    console.log("Request url",req.url)
+    var sortby = req.query.sortby|| "uploadDate"
+    console.log("sortby: ", sortby);
+    let query = uploadFile.find().where('email').equals(req.user.email).where('delete').equals('0').where('archive').equals(null).sort({[sortby]: 'desc'}).limit(20)
     let docQuery = uploadFile.find().where('email').equals(req.user.email).where('delete').equals('0').where('archive').equals(null).where('mimeCategory').equals('document').sort({uploadDate: 'desc'}).limit(20)
     let tasksList = taskList.find().where('creatorEmail').equals(req.user.email).sort({createDate: 'desc'})
     if (req.query.orignalFileName != null && req.query.orignalFileName !== '' ) {

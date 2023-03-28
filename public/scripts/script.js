@@ -25,9 +25,9 @@ $(document).ready(function() {
     $(".dropdown-toggles").dropdown();
 });
 
-$('.popover-dismiss').popover({
-	trigger: 'focus'
-})
+//$('.popover-dismiss').popover({
+//	trigger: 'focus'
+//})
 
 //to auto copy the share link in FileSharing
 function copyLinkFunction() {
@@ -236,7 +236,7 @@ var options = {
 	buttonColorLight: 'transparent', // default: '#fff'
 	saveInCookies: true, // default: true,
 	label: '', // default: ''
-	autoMatchOsTheme: true // default: true
+	autoMatchOsTheme: true, // default: true
 }
 const darkmode =  new Darkmode(options);
 darkmode.showWidget();
