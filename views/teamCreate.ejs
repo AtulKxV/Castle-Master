@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Cloud Castle</title>
+</head>
+<body>
+<div class="container-fuid m-0 p-0">
+	<div class="container-fuid m-0 sidenav bg-light p-3">
+		<div class="headerfont">
+			<a class="headerfont logo_link" href="/">
+				<img class="img-fluid logo m-1" src="/assets/icons8-castle-64.png">
+			</a>
+			<span class="m-0 p-0 align-bottom"><b>Cloud Castle</b></span>
+		</div>
+		<hr>
+		<br>
+		<center>
+			<a href="/uploadFile/dashboard/teamCreate" id="modalActivate" type="button" class="btn align-text-top btn-primary w-75 headerfont text-white" >Create Team</a>
+		</center>
+
+		<div class="mt-4">
+			<ul class="list-group list-group-flush headerfont bg-light">
+				<a href="/uploadFile/dashboard" class="page-link p-0 m-0 border-0 text-dark"><li class="list-group-item bg-light border-0 pb-0 pl-4"><i class="fa fa-home header_main pr-3" aria-hidden="true"></i>Home</li></a>					
+				<br>
+				<a href="/uploadFile/dashboard/recent" class="page-link p-0 m-0 border-0 text-dark"><li class="list-group-item bg-light border-0 pb-0 pl-4"><i class="fa fa-clock-o fa-flip-horizontal header_main pl-3" aria-hidden="true"></i>Recent</li></a>
+				<a href="/uploadFile/dashboard/favourite" class="page-link p-0 m-0 border-0 text-dark"><li class="list-group-item bg-light border-0 pb-0 pl-4"><i class="fa fa-star header_main pr-3"></i>Favourites</li></a>	
+				<br>
+				<a href="/uploadFile/dashboard/projects" class="page-link p-0 m-0 border-0 text-dark"><li class="list-group-item bg-light border-0 pb-0 pl-4"><i class="fa fa-users header_main pr-3"></i>Projects</li></a>
+				<a href="/uploadFile/dashboard/archives" class="page-link p-0 m-0 border-0 text-dark"><li class="list-group-item bg-light border-0 pb-0 pl-4"><i class="fas fa-archive header_main pr-3"></i>Archives</li></a>
+				<br>
+				<li class="list-group-item bg-light border-0 pb-0 pl-4"><i class="fa fa-tags header_main pr-3"></i>Tags
+					<ul class="list-group parafont">
+						<a href="/uploadFile/dashboard/work" class="page-link p-0 border-0 text-dark"><li class="list-group-item bg-light header_main secondary-size border-0 pt-2 pb-0 m-0"><i class="fa fa-briefcase p-2"></i>Work</li></a>
+						<a href="/uploadFile/dashboard/personal" class="page-link p-0 m-0 border-0 text-dark"><li class="list-group-item bg-light header_main secondary-size border-0 py-0 "><i class="fa fa-user p-2"></i>Personal</li></a>
+						<a href="/uploadFile/dashboard/other" class="page-link p-0 m-0 border-0 text-dark"><li class="list-group-item bg-light header_main secondary-size border-0 py-0"><i class="fa fa-folder p-2"></i>Other</li></a>
+					</ul>
+				</li>
+				<br>
+				<a href="/uploadFile/dashboard/trash" class="page-link p-0 m-0 border-0 text-dark"><li class="list-group-item bg-light border-0 pb-0 pl-4"><i class="fa fa-trash header_main pr-3"></i>Trash</li></a>
+			</ul>
+		</div>
+		<div class="logoutsection fixed-bottom align-text-top">
+		<hr class="my-0">
+        	<a href="/users/logout" class="btn btn-link w-100 h-100 p-3 headerfont header_main">Logout</a>
+		</div>
+	</div>
+    
+
+
+
+
+<div class="container-fuid main-body">
+	<div class="container-fuid header_main sticky-top ml-3 py-2">
+		<form action="/uploadFile/dashboard" method="GET">
+			<div class="input-group">
+	        	<button class="input-group-prepend input-group-text border-0 bg-light"><i class="fas fa-search "></i></button>
+                <input class="form-control parafont bg-light border-0 searchbar" type="text" placeholder="Search" name="orignalFileName" value="<%= searchOptions.orignalFileName %>">
+            	<span class="input-group-append input-group-text p-0 border-0 bg-light headerfont">
+					<span class="ml-2 header_main"><%= firstname + '  ' + lastname %></span>
+					<a href="/users/profile/edit"><img class="rounded-circle ml-2 mr-2 profile_pic" src="<%= profilePicPath %>" alt="pic"></a>
+					<div class="dropdown"><button class="dropdown-toggles fa fa-ellipsis-v header_main fileControlBtn form-control pl-1 py-0" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
+						<div class="dropdown-menu dropdown-menu-right parafont nav-menu w-auto blur-bg">
+						  <a class="dropdown-item pt-2 mx-3 w-auto form-control" href="/users/profile">Profile</a>
+						  <div class="dropdown-divider"></div>
+						  <a class="dropdown-item pt-2 mx-3 w-auto form-control" href="/users/profile/edit">Edit Profile</a>
+						  <a class="dropdown-item pt-2 mx-3 w-auto disabled href="#">Edit Work Availability</a>
+						  <div class="dropdown-divider"></div>
+						  <a class="dropdown-item pt-2 mx-3 w-auto form-control" href="/users/uploads">My Uploads</a>
+						  <a class="dropdown-item pt-2 mx-3 w-auto form-control" href="/users/projects">My Projects</a>
+						  <div class="dropdown-divider"></div>
+						  <a class="dropdown-item pt-2 mx-3 w-auto form-control" href="/users/settings">Account Settings</a>
+						  <a class="dropdown-item pt-2 mx-3 w-auto form-control" href="/users/help">Get Help</a>
+						  <div class="dropdown-divider"></div>
+						  <a class="dropdown-item pt-2 mx-3 w-auto form-control" href="/users/logout">Sign Out</a>
+						</div>
+					</div>				
+				</span>
+            </div>
+		</form>
+	</div>
+
+	<div class="container-fluid w-100 m-0 p-0 row">
+		<div class="container-fluid m-0 mt-4">
+			<div class="card-body bg-light center w-75">
+				<form action="/createTeam/create" method="POST">					
+					<span class="headerfont header_main text-dark p-4 font-weight-bold h4">Create a Team.</span>	
+					<hr>
+					<br>
+					<div class="card-group">
+						<div class="form-group card-body">
+							<label for="title">Name:</label>
+							<input class="form-control border-top-0 border-right-0 border-left-0" type="text" placeholder="Add team title" name="teamName">
+						</div>
+					</div>
+					<div class="card-group">
+						<div class="form-group card-body">
+							<label for="goals">Goals:</label>
+							<textarea class="form-control border-top-0 border-right-0 border-left-0" rows="5" placeholder="Add your team goals (optional)" name="goals"></textarea>
+						</div>
+					</div>	
+					<div class="card-group">
+						<div class="form-group card-body">
+							<label for="participants">Participants:</label>
+							<select name="participants" class="custom-select mb-3" multiple>
+								<% users.forEach( Users => { %>	
+									<% if (Users.id === participants.id) { %>								
+										<option label="<%= Users.email %>" value="<%= Users.email %>" selected>
+									<% } else { %>
+										<option label="<%= Users.email %>" value="<%= Users.email %>">
+									<% } %>
+								<% }) %>
+							</select>
+						</div>
+					</div>
+					<br>
+					<div class="form-group mb-5">
+						<button type="submit" class="btn btn-primary float-right">Next</button>
+						<a href="/uploadFile/dashboard/projects" type="button" class="btn link float-right">Cancel</a>
+					</div>
+				</form>
+			</div>
+		</div>
+		
+		<!-- CONTAINER TO SHOW THE TEAM DETAILS AND CREATOR DETAILS -->
+		<!-- <span class="container-fluid w-25 mx-0 mt-4 float-right bg-light">
+			<br>
+			<br>
+			<br>
+			<br>
+		</span> -->
+	</div>
+
+	<!--Hero header of page-->
+	<!-- <div class="container w-75 mx-0 sticky-top hero-header">
+		<div class="px-3 py-1 bg-light">
+			<b class="headerfont header_main">Projects</b>
+			<br>
+            <span class="parafont header_main secondary-size">All projects are displayed here.</a></span>
+        </div>
+	</div> -->
+	<!--End of hero header-->
+	<br>
+
+
+	<!-- <div class="container w-75 m-0 file-list">
+					
+		<div class="align-middle">
+			
+		</div>
+    </div> -->
+</div>
+
+</div>
+	<script>
+		$(function () {
+  			$('[data-toggle="popover"]').popover()
+		})
+	</script>
+	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</body>
+</html>
