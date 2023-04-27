@@ -439,7 +439,7 @@
 																<div class="dropdown-divider"></div>
 																<button
 																	class="dropdown-item pt-0 w-100 form-control w-100 darkModeDropdownItem text-dark"
-																	onclick="document.getElementById('detailsLabel').innerHTML='<%= file.orignalFileName %>'; document.getElementById('detailsDataType').innerHTML='<%= file.mimetype %>'; var sizeInMB = <%= file.size %>/1000000; document.getElementById('detailsDataSize').innerHTML=sizeInMB.toFixed(1) +'&nbsp;MB &nbsp;' + '(<%= file.size %> bytes)'; document.getElementById('detailsDataCreated').innerHTML='<%= file.uploadDate %>'; document.getElementById('detailsDataDescription').innerHTML = '<%= file.description %>' "
+																	onclick="document.getElementById('detailsLabel').innerHTML='<%= file.orignalFileName %>'; document.getElementById('detailsDataType').innerHTML='<%= file.mimetype %>'; var sizeInMB = '<%= file.size %>'/1000000; document.getElementById('detailsDataSize').innerHTML=sizeInMB.toFixed(1) +'&nbsp;MB &nbsp;' + '(<%= file.size %> bytes)'; document.getElementById('detailsDataCreated').innerHTML='<%= file.uploadDate %>'; document.getElementById('detailsDataDescription').innerHTML = '<%= file.description %>' "
 																	data-toggle="modal"
 																	data-target="#exampleModalCenterDetails">Details</button>
 																<div class="dropdown-divider"></div>
